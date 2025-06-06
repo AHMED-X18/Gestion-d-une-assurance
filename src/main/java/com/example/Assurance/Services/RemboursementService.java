@@ -16,7 +16,7 @@ public class RemboursementService {
 
     public Remboursement effectuerRemboursement(Integer idFeuille, String moyenDePaiement, String statut) {
         Remboursement remboursement = new Remboursement();
-        remboursement.setFeuilleDeMaladie(FeuilleDeMaladieRepository.findById(idFeuille)); // À ajuster avec l'entité complète
+        //remboursement.setFeuilleDeMaladie(FeuilleDeMaladieRepository.findById(idFeuille)); // À ajuster avec l'entité complète
         remboursement.setMoyenDePaiement(moyenDePaiement);
         remboursement.setStatut(statut);
         return remboursementRepository.save(remboursement);
