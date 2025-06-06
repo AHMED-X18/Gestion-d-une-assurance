@@ -23,6 +23,9 @@ public class MedecinSpecialiste {
     @Column(name = "Prenom", nullable = false)
     private String prenom;
 
+    @Column(name="Sexe", nullable=false)
+    private String sexe;
+
     @Column(name = "Specialite", nullable = false)
     private String specialite;
 

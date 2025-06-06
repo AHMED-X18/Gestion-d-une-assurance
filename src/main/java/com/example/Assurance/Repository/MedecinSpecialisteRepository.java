@@ -11,6 +11,9 @@ public interface MedecinSpecialisteRepository extends JpaRepository<MedecinSpeci
     // Recherche par nom ou prénom (insensible à la casse)
     List<MedecinSpecialiste> findByNomOrPrenom(String nom, String prenom);
 
+    // Recherche par le sexe
+    List<MedecinSpecialiste> findBySexe(String sexe);
+
     // Recherche par spécialité
     List<MedecinSpecialiste> findBySpecialite(String specialite);
 }

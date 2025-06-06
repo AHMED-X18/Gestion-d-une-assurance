@@ -21,6 +21,9 @@ public class AgentSecuriteSociale {
     @Column(name = "Prenom", nullable = false)
     private String prenom;
 
+    @Column(name = "Sexe", nullable=false)
+    private String sexe;
+
     @OneToOne(mappedBy = "agentSecuriteSociale")
     private User user;
 }

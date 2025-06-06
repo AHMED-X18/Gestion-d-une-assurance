@@ -24,6 +24,9 @@ public class Assure {
     @Column(name = "Prenom", nullable = false)
     private String prenom;
 
+    @Column(name = "Sexe", nullable= false)
+    private String sexe;
+
     @Column(name = "DateNaissance", nullable = false)
     private LocalDate dateNaissance;
 
