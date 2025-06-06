@@ -1,0 +1,97 @@
+2025-06-02 22:40:46 - Starting AssuranceApplicationTests using Java 23 with PID 26944 (started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-02 22:40:46 - No active profile set, falling back to 1 default profile: "default"
+2025-06-02 22:40:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02 22:40:47 - Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2025-06-02 22:40:47 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02 22:40:47 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-02 22:40:47 - HHH000026: Second-level cache disabled
+2025-06-02 22:40:48 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02 22:40:48 - HikariPool-1 - Starting...
+2025-06-02 22:40:49 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ab9e43e
+2025-06-02 22:40:49 - HikariPool-1 - Start completed.
+2025-06-02 22:40:49 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02 22:40:49 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-02 22:40:50 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-02 22:40:50 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-02 22:40:50 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-02 22:40:50 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-02 22:40:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02 22:44:25 - Starting AssuranceApplicationTests using Java 23 with PID 29714 (started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-02 22:44:25 - No active profile set, falling back to 1 default profile: "default"
+2025-06-02 22:44:26 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02 22:44:26 - Finished Spring Data repository scanning in 21 ms. Found 0 JPA repository interfaces.
+2025-06-02 22:44:27 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02 22:44:27 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-02 22:44:27 - HHH000026: Second-level cache disabled
+2025-06-02 22:44:28 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02 22:44:28 - HikariPool-1 - Starting...
+2025-06-02 22:44:28 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9f0fc36
+2025-06-02 22:44:28 - HikariPool-1 - Start completed.
+2025-06-02 22:44:28 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02 22:44:28 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-02 22:44:29 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-02 22:44:29 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-02 22:44:29 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-02 22:44:29 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-02 22:44:30 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02 22:44:31 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02 22:44:32 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02 22:44:32 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-06-02 22:44:32 - Started AssuranceApplicationTests in 7.853 seconds (process running for 9.349)
+2025-06-02 22:44:33 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02 22:44:33 - HikariPool-1 - Shutdown initiated...
+2025-06-02 22:44:33 - HikariPool-1 - Shutdown completed.
+2025-06-02 22:52:58 - Starting AssuranceApplication using Java 23 with PID 30170 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-02 22:52:58 - No active profile set, falling back to 1 default profile: "default"
+2025-06-02 22:52:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02 22:52:59 - Finished Spring Data repository scanning in 23 ms. Found 0 JPA repository interfaces.
+2025-06-02 22:53:00 - Tomcat initialized with port 8080 (http)
+2025-06-02 22:53:00 - Starting service [Tomcat]
+2025-06-02 22:53:00 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-02 22:53:00 - Initializing Spring embedded WebApplicationContext
+2025-06-02 22:53:00 - Root WebApplicationContext: initialization completed in 2324 ms
+2025-06-02 22:53:01 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02 22:53:01 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-02 22:53:01 - HHH000026: Second-level cache disabled
+2025-06-02 22:53:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02 22:53:01 - HikariPool-1 - Starting...
+2025-06-02 22:53:02 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c6e3ff9
+2025-06-02 22:53:02 - HikariPool-1 - Start completed.
+2025-06-02 22:53:02 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02 22:53:02 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-02 22:53:03 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-02 22:53:03 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-02 22:53:03 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-02 22:53:03 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-02 22:53:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02 22:53:05 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02 22:53:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02 22:53:05 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-06-02 22:53:06 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-02 22:53:06 - Started AssuranceApplication in 9.196 seconds (process running for 10.437)
+2025-06-02 22:53:31 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-02 22:53:31 - Graceful shutdown complete
+2025-06-02 22:53:31 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02 22:53:31 - HikariPool-1 - Shutdown initiated...
+2025-06-02 22:53:31 - HikariPool-1 - Shutdown completed.
