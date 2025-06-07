@@ -22,8 +22,4 @@ public class RemboursementService {
         return remboursementRepository.save(remboursement);
     }
 
-    public List<Remboursement> rembourserParCashOuVirement(Integer idFeuille) {
-        List<String> moyens = Arrays.asList("cash", "virement");
-        return remboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(idFeuille, moyens);
-    }
 }

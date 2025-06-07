@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de Gestion de Sécurité Sociale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 1000px;
+            min-height: 600px;
+            display: flex;
+            margin: 20px;
+        }
+
+        .auth-left {
+            flex: 1;
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%);
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo::before {
+            content: '🏥';
+            margin-right: 15px;
+        }
+
+        .auth-left h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-left p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-right {
+            flex: 1;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 5px;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .auth-tab.active {
+            background: #2d5a27;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(45, 90, 39, 0.3);
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-type-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .user-type {
+            flex: 1;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .user-type:hover {
+            border-color: #4a7c59;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 124, 89, 0.2);
+        }
+
+        .user-type.selected {
+            border-color: #2d5a27;
+            background: #f8fff8;
+            box-shadow: 0 8px 20px rgba(45, 90, 39, 0.2);
+        }
+
+        .user-type-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .user-type-title {
+            font-weight: bold;
+            color: #2d5a27;
+            margin-bottom: 5px;
+        }
+
+        .user-type-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #4a7c59;
+            box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+        }
+
+        .auth-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .auth-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(45, 90, 39, 0.3);
+        }
+
+        .auth-button:active {
+            transform: translateY(0);
+        }
+
+        .auth-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+        }
+
+        .error-message {
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-message {
+            background: #efe;
+            border: 1px solid #cfc;
+            color: #3c3;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                flex-direction: column;
+                margin: 10px;
+            }
+
+            .auth-left {
+                padding: 40px 30px;
+                text-align: center;
+            }
+
+            .auth-right {
+                padding: 40px 30px;
+            }
+
+            .user-type-selector {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="auth-container">
+    <div class="auth-left">
+        <div class="logo">SecuriCare</div>
+        <h2>Système de Gestion de Sécurité Sociale</h2>
+        <p>Plateforme sécurisée pour la gestion des assurés, consultations médicales et remboursements. Connectez-vous pour accéder à vos services de santé.</p>
+    </div>
+
+    <div class="auth-right">
+        <div class="auth-tabs">
+            <div class="auth-tab active">Connexion</div>
+        </div>
+
+        <!-- Messages d'erreur et de succès -->
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <!-- Formulaire de Connexion -->
+        <div class="form-container active" id="loginForm">
+            <div class="user-type-selector">
+                <div class="user-type selected" data-type="agent">
+                    <div class="user-type-icon">👤</div>
+                    <div class="user-type-title">Agent</div>
+                    <div class="user-type-desc">Sécurité Sociale</div>
+                </div>
+                <div class="user-type" data-type="medecin">
+                    <div class="user-type-icon">👨‍⚕️</div>
+                    <div class="user-type-title">Médecin</div>
+                    <div class="user-type-desc">Généraliste/Spécialiste</div>
+                </div>
+            </div>
+
+            <form id="loginFormElement">
+                <div class="form-group">
+                    <label for="loginUsername">Nom d'utilisateur</label>
+                    <input type="text" id="loginUsername" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Mot de passe</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+
+                <button type="submit" class="auth-button">Se connecter</button>
+            </form>
+
+            <div class="form-footer">
+                <!-- Lien d'inscription supprimé -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Variables globales
+    let currentTab = 'login';
+    let selectedUserType = 'agent';
+
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', function() {
+        setupTabSwitching();
+        setupUserTypeSelection();
+        setupFormSubmission();
+        updateUserTypeSelection();
+    });
+
+    // Gestion des onglets
+    function setupTabSwitching() {
+        const tabs = document.querySelectorAll('.auth-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabType = this.getAttribute('data-tab');
+                switchTab(tabType);
+            });
+        });
+    }
+
+    function switchTab(tabType) {
+        // Mise à jour des onglets
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.querySelector(`[data-tab="${tabType}"]`).classList.add('active');
+
+        // Mise à jour des formulaires
+        document.querySelectorAll('.form-container').forEach(container => {
+            container.classList.remove('active');
+        });
+        document.getElementById(tabType + 'Form').classList.add('active');
+
+        currentTab = tabType;
+        hideMessages();
+    }
+
+    // Gestion de la sélection du type d'utilisateur
+    function setupUserTypeSelection() {
+        const userTypes = document.querySelectorAll('.user-type');
+        userTypes.forEach(type => {
+            type.addEventListener('click', function() {
+                const userType = this.getAttribute('data-type');
+                selectUserType(userType);
+            });
+        });
+    }
+
+    function selectUserType(userType) {
+        selectedUserType = userType;
+        updateUserTypeSelection();
+    }
+
+    function updateUserTypeSelection() {
+        // Mise à jour visuelle des sélections
+        document.querySelectorAll('.user-type').forEach(type => {
+            type.classList.remove('selected');
+        });
+        document.querySelectorAll(`[data-type="${selectedUserType}"]`).forEach(type => {
+            type.classList.add('selected');
+        });
+    }
+
+    // Gestion de la soumission des formulaires
+    function setupFormSubmission() {
+        // Formulaire de connexion
+        document.getElementById('loginFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleLogin();
+        });
+    }
+
+    // Gestion de la connexion
+    function handleLogin() {
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+
+        // Validation basique
+        if (!username || !password) {
+            showError('Veuillez remplir tous les champs.');
+            return;
+        }
+
+        // Simulation de la connexion
+        showSuccess('Connexion en cours...');
+
+        // Simulation d'un délai de connexion
+        setTimeout(() => {
+            const userData = {
+                username: username,
+                userType: selectedUserType,
+                timestamp: new Date().toISOString()
+            };
+
+            // Stockage temporaire des données utilisateur
+            sessionStorage.setItem('userData', JSON.stringify(userData));
+
+            // Redirection simulée selon le type d'utilisateur
+            if (selectedUserType === 'agent') {
+                showSuccess('Connexion réussie ! Redirection vers le tableau de bord Agent...');
+                setTimeout(() => {
+                    alert('Redirection vers le dashboard Agent (à implémenter)');
+                }, 1500);
+            } else {
+                showSuccess('Connexion réussie ! Redirection vers le tableau de bord Médecin...');
+                setTimeout(() => {
+                    alert('Redirection vers le dashboard Médecin (à implémenter)');
+                }, 1500);
+            }
+        }, 1000);
+    }
+
+    // Gestion des messages
+    function showError(message) {
+        const errorDiv = document.getElementById('errorMessage');
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+
+        const successDiv = document.getElementById('successMessage');
+        successDiv.style.display = 'none';
+
+        // Masquer automatiquement après 5 secondes
+        setTimeout(hideMessages, 5000);
+    }
+
+    function showSuccess(message) {
+        const successDiv = document.getElementById('successMessage');
+        successDiv.textContent = message;
+        successDiv.style.display = 'block';
+
+        const errorDiv = document.getElementById('errorMessage');
+        errorDiv.style.display = 'none';
+    }
+
+    function hideMessages() {
+        document.getElementById('errorMessage').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'none';
+    }
+</script>
+</body>
+</html>

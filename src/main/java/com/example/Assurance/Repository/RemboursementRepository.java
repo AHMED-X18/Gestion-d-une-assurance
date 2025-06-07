@@ -11,7 +11,5 @@ public interface RemboursementRepository extends JpaRepository<Remboursement, In
     List<Remboursement> findByFeuilleDeMaladieIdFeuille(Integer idFeuille);
     List<Remboursement> findByMoyenDePaiement(String moyenDePaiement);
     List<Remboursement> findByStatut(String statut);
-    // Filtrer par type de remboursement (cash ou virement)
-    List<Remboursement> findByMoyenDePaiement(List<String> moyensDePaiement);
-    List<Remboursement> findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(Integer idFeuille, List<String> moyensDePaiement);
+
 }

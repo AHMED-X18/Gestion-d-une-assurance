@@ -16,5 +16,5 @@ public interface MedecinGeneralisteRepository extends JpaRepository<MedecinGener
     List<MedecinGeneraliste> findBySexe(String sexe);
 
     // Méthode pour trouver les médecins associés à un assuré
-    List<MedecinGeneraliste> findByAssureNumPatient(Integer numPatient);
+   // List<MedecinGeneraliste> findByAssureNumPatient(Integer numPatient);
 }

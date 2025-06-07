@@ -1,16 +1,22 @@
-2025-06-02 22:40:46 - Starting AssuranceApplicationTests using Java 23 with PID 26944 (started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
-2025-06-02 22:40:46 - No active profile set, falling back to 1 default profile: "default"
-2025-06-02 22:40:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-02 22:40:47 - Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
-2025-06-02 22:40:47 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-02 22:40:47 - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-02 22:40:47 - HHH000026: Second-level cache disabled
-2025-06-02 22:40:48 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-02 22:40:48 - HikariPool-1 - Starting...
-2025-06-02 22:40:49 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ab9e43e
-2025-06-02 22:40:49 - HikariPool-1 - Start completed.
-2025-06-02 22:40:49 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-02 22:40:49 - HHH10001005: Database info:
+2025-06-07 19:24:15 - Starting AssuranceApplication using Java 23 with PID 11144 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-07 19:24:15 - No active profile set, falling back to 1 default profile: "default"
+2025-06-07 19:24:18 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-07 19:24:18 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-07 19:24:48 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-07 19:24:48 - Finished Spring Data repository scanning in 344 ms. Found 11 JPA repository interfaces.
+2025-06-07 19:24:54 - Tomcat initialized with port 8080 (http)
+2025-06-07 19:24:54 - Starting service [Tomcat]
+2025-06-07 19:24:54 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-07 19:24:54 - Initializing Spring embedded WebApplicationContext
+2025-06-07 19:24:54 - Root WebApplicationContext: initialization completed in 36036 ms
+2025-06-07 19:24:55 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-07 19:24:56 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-07 19:24:56 - HHH000026: Second-level cache disabled
+2025-06-07 19:24:58 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-07 19:24:58 - HikariPool-1 - Starting...
+2025-06-07 19:24:59 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d4105d4
+2025-06-07 19:24:59 - HikariPool-1 - Start completed.
+2025-06-07 19:25:00 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.41
@@ -18,24 +24,154 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-02 22:40:50 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
-2025-06-02 22:40:50 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
-2025-06-02 22:40:50 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
-2025-06-02 22:40:50 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
-2025-06-02 22:40:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-02 22:44:25 - Starting AssuranceApplicationTests using Java 23 with PID 29714 (started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
-2025-06-02 22:44:25 - No active profile set, falling back to 1 default profile: "default"
-2025-06-02 22:44:26 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-02 22:44:26 - Finished Spring Data repository scanning in 21 ms. Found 0 JPA repository interfaces.
-2025-06-02 22:44:27 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-02 22:44:27 - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-02 22:44:27 - HHH000026: Second-level cache disabled
-2025-06-02 22:44:28 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-02 22:44:28 - HikariPool-1 - Starting...
-2025-06-02 22:44:28 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9f0fc36
-2025-06-02 22:44:28 - HikariPool-1 - Start completed.
-2025-06-02 22:44:28 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-02 22:44:28 - HHH10001005: Database info:
+2025-06-07 19:25:02 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:25:02 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:25:02 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:25:02 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:25:06 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-07 19:25:07 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:25:09 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-07 19:25:11 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'prescriptionService': Unsatisfied dependency expressed through field 'consultationRepository': Error creating bean with name 'consultationRepository' defined in com.example.Assurance.Repository.ConsultationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); Reason: Validation failed for query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer)
+2025-06-07 19:25:11 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:25:11 - HikariPool-1 - Shutdown initiated...
+2025-06-07 19:25:11 - HikariPool-1 - Shutdown completed.
+2025-06-07 19:25:11 - Stopping service [Tomcat]
+2025-06-07 19:25:11 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-07 19:25:11 - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'prescriptionService': Unsatisfied dependency expressed through field 'consultationRepository': Error creating bean with name 'consultationRepository' defined in com.example.Assurance.Repository.ConsultationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); Reason: Validation failed for query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.example.Assurance.AssuranceApplication.main(AssuranceApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'consultationRepository' defined in com.example.Assurance.Repository.ConsultationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); Reason: Validation failed for query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1682)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); Reason: Validation failed for query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer)
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:120)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:104)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:92)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:92)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:431)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
+	at org.springframework.data.util.Lazy.get(Lazy.java:113)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	... 34 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer)
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:97)
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.<init>(SimpleJpaQuery.java:67)
+	at org.springframework.data.jpa.repository.query.JpaQueryFactory.fromMethodWithQueryString(JpaQueryFactory.java:49)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$DeclaredQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:174)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:99)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:116)
+	... 46 common frames omitted
+Caused by: java.lang.IllegalArgumentException: org.hibernate.query.sqm.UnknownPathException: Could not resolve attribute 'medicaments' of 'com.example.Assurance.Models.FeuilleDeMaladie' [SELECT c FROM Consultation c JOIN c.feuilleDeMaladie fm JOIN fm.medicaments p WHERE p.idMedicament = :idMedicament]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:143)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:167)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:173)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:886)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:796)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:143)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy4/jdk.proxy4.$Proxy121.createQuery(Unknown Source)
+	at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:91)
+	... 52 common frames omitted
+Caused by: org.hibernate.query.sqm.UnknownPathException: Could not resolve attribute 'medicaments' of 'com.example.Assurance.Models.FeuilleDeMaladie' [SELECT c FROM Consultation c JOIN c.feuilleDeMaladie fm JOIN fm.medicaments p WHERE p.idMedicament = :idMedicament]
+	at org.hibernate.query.hql.internal.StandardHqlTranslator.translate(StandardHqlTranslator.java:88)
+	at org.hibernate.query.internal.QueryInterpretationCacheStandardImpl.createHqlInterpretation(QueryInterpretationCacheStandardImpl.java:145)
+	at org.hibernate.query.internal.QueryInterpretationCacheStandardImpl.resolveHqlInterpretation(QueryInterpretationCacheStandardImpl.java:132)
+	at org.hibernate.query.spi.QueryEngine.interpretHql(QueryEngine.java:54)
+	at org.hibernate.internal.AbstractSharedSessionContract.interpretHql(AbstractSharedSessionContract.java:832)
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:878)
+	... 59 common frames omitted
+Caused by: org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'medicaments' of 'com.example.Assurance.Models.FeuilleDeMaladie'
+	at org.hibernate.query.sqm.SqmPathSource.getSubPathSource(SqmPathSource.java:95)
+	at org.hibernate.query.hql.internal.QualifiedJoinPathConsumer.createJoin(QualifiedJoinPathConsumer.java:193)
+	at org.hibernate.query.hql.internal.QualifiedJoinPathConsumer$AttributeJoinDelegate.consumeIdentifier(QualifiedJoinPathConsumer.java:271)
+	at org.hibernate.query.hql.internal.QualifiedJoinPathConsumer.consumeIdentifier(QualifiedJoinPathConsumer.java:107)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitSimplePath(SemanticQueryBuilder.java:5465)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitGeneralPathFragment(SemanticQueryBuilder.java:5298)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitGeneralPathFragment(SemanticQueryBuilder.java:277)
+	at org.hibernate.grammars.hql.HqlParser$GeneralPathFragmentContext.accept(HqlParser.java:4789)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitPath(SemanticQueryBuilder.java:5289)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitPath(SemanticQueryBuilder.java:277)
+	at org.hibernate.grammars.hql.HqlParser$PathContext.accept(HqlParser.java:4519)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.getJoin(SemanticQueryBuilder.java:2280)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.consumeJoin(SemanticQueryBuilder.java:2224)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitEntityWithJoins(SemanticQueryBuilder.java:2037)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitFromClause(SemanticQueryBuilder.java:2016)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitQuery(SemanticQueryBuilder.java:1248)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitQuerySpecExpression(SemanticQueryBuilder.java:1040)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitQuerySpecExpression(SemanticQueryBuilder.java:277)
+	at org.hibernate.grammars.hql.HqlParser$QuerySpecExpressionContext.accept(HqlParser.java:2134)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitSimpleQueryGroup(SemanticQueryBuilder.java:1025)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitSimpleQueryGroup(SemanticQueryBuilder.java:277)
+	at org.hibernate.grammars.hql.HqlParser$SimpleQueryGroupContext.accept(HqlParser.java:2005)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitSelectStatement(SemanticQueryBuilder.java:492)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.visitStatement(SemanticQueryBuilder.java:451)
+	at org.hibernate.query.hql.internal.SemanticQueryBuilder.buildSemanticModel(SemanticQueryBuilder.java:324)
+	at org.hibernate.query.hql.internal.StandardHqlTranslator.translate(StandardHqlTranslator.java:71)
+	... 64 common frames omitted
+2025-06-07 19:26:20 - Starting AssuranceApplication using Java 23 with PID 11360 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-07 19:26:20 - No active profile set, falling back to 1 default profile: "default"
+2025-06-07 19:26:20 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-07 19:26:20 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-07 19:26:25 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-07 19:26:26 - Finished Spring Data repository scanning in 526 ms. Found 11 JPA repository interfaces.
+2025-06-07 19:26:28 - Tomcat initialized with port 8080 (http)
+2025-06-07 19:26:29 - Starting service [Tomcat]
+2025-06-07 19:26:29 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-07 19:26:29 - Initializing Spring embedded WebApplicationContext
+2025-06-07 19:26:29 - Root WebApplicationContext: initialization completed in 8515 ms
+2025-06-07 19:26:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-07 19:26:30 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-07 19:26:30 - HHH000026: Second-level cache disabled
+2025-06-07 19:26:31 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-07 19:26:31 - HikariPool-1 - Starting...
+2025-06-07 19:26:33 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6fe23dce
+2025-06-07 19:26:33 - HikariPool-1 - Start completed.
+2025-06-07 19:26:33 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.41
@@ -43,36 +179,134 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-02 22:44:29 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
-2025-06-02 22:44:29 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
-2025-06-02 22:44:29 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
-2025-06-02 22:44:29 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
-2025-06-02 22:44:30 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-02 22:44:31 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-02 22:44:32 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-02 22:44:32 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2025-06-02 22:44:32 - Started AssuranceApplicationTests in 7.853 seconds (process running for 9.349)
-2025-06-02 22:44:33 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-02 22:44:33 - HikariPool-1 - Shutdown initiated...
-2025-06-02 22:44:33 - HikariPool-1 - Shutdown completed.
-2025-06-02 22:52:58 - Starting AssuranceApplication using Java 23 with PID 30170 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
-2025-06-02 22:52:58 - No active profile set, falling back to 1 default profile: "default"
-2025-06-02 22:52:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-02 22:52:59 - Finished Spring Data repository scanning in 23 ms. Found 0 JPA repository interfaces.
-2025-06-02 22:53:00 - Tomcat initialized with port 8080 (http)
-2025-06-02 22:53:00 - Starting service [Tomcat]
-2025-06-02 22:53:00 - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2025-06-02 22:53:00 - Initializing Spring embedded WebApplicationContext
-2025-06-02 22:53:00 - Root WebApplicationContext: initialization completed in 2324 ms
-2025-06-02 22:53:01 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-02 22:53:01 - HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-02 22:53:01 - HHH000026: Second-level cache disabled
-2025-06-02 22:53:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-02 22:53:01 - HikariPool-1 - Starting...
-2025-06-02 22:53:02 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c6e3ff9
-2025-06-02 22:53:02 - HikariPool-1 - Start completed.
-2025-06-02 22:53:02 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-02 22:53:02 - HHH10001005: Database info:
+2025-06-07 19:26:35 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:26:35 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:26:35 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:26:35 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:26:38 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-07 19:26:39 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:26:40 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'prescriptionService': Unsatisfied dependency expressed through field 'consultationRepository': Error creating bean with name 'consultationRepository' defined in com.example.Assurance.Repository.ConsultationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); No property 'medicamentId' found for type 'Consultation'
+2025-06-07 19:26:40 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:26:40 - HikariPool-1 - Shutdown initiated...
+2025-06-07 19:26:41 - HikariPool-1 - Shutdown completed.
+2025-06-07 19:26:41 - Stopping service [Tomcat]
+2025-06-07 19:26:41 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-07 19:26:41 - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'prescriptionService': Unsatisfied dependency expressed through field 'consultationRepository': Error creating bean with name 'consultationRepository' defined in com.example.Assurance.Repository.ConsultationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); No property 'medicamentId' found for type 'Consultation'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.example.Assurance.AssuranceApplication.main(AssuranceApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'consultationRepository' defined in com.example.Assurance.Repository.ConsultationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); No property 'medicamentId' found for type 'Consultation'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1682)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); No property 'medicamentId' found for type 'Consultation'
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:120)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:104)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:92)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:92)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:431)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
+	at org.springframework.data.util.Lazy.get(Lazy.java:113)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	... 34 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.ConsultationRepository.findByMedicamentId(java.lang.Integer); No property 'medicamentId' found for type 'Consultation'
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:128)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:260)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:99)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:116)
+	... 46 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'medicamentId' found for type 'Consultation'
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:94)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:455)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:431)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:384)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:366)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:344)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:259)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:215)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:727)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:260)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:389)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:215)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:727)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:390)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:103)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:101)
+	... 50 common frames omitted
+2025-06-07 19:29:53 - Starting AssuranceApplication using Java 23 with PID 11564 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-07 19:29:53 - No active profile set, falling back to 1 default profile: "default"
+2025-06-07 19:29:54 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-07 19:29:54 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-07 19:30:00 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-07 19:30:00 - Finished Spring Data repository scanning in 373 ms. Found 11 JPA repository interfaces.
+2025-06-07 19:30:03 - Tomcat initialized with port 8080 (http)
+2025-06-07 19:30:03 - Starting service [Tomcat]
+2025-06-07 19:30:03 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-07 19:30:03 - Initializing Spring embedded WebApplicationContext
+2025-06-07 19:30:03 - Root WebApplicationContext: initialization completed in 9709 ms
+2025-06-07 19:30:04 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-07 19:30:04 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-07 19:30:05 - HHH000026: Second-level cache disabled
+2025-06-07 19:30:06 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-07 19:30:06 - HikariPool-1 - Starting...
+2025-06-07 19:30:07 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6565c9e6
+2025-06-07 19:30:07 - HikariPool-1 - Start completed.
+2025-06-07 19:30:07 - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.41
@@ -80,18 +314,240 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-02 22:53:03 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
-2025-06-02 22:53:03 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
-2025-06-02 22:53:03 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
-2025-06-02 22:53:03 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
-2025-06-02 22:53:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-02 22:53:05 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-02 22:53:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-02 22:53:05 - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2025-06-02 22:53:06 - Tomcat started on port 8080 (http) with context path '/'
-2025-06-02 22:53:06 - Started AssuranceApplication in 9.196 seconds (process running for 10.437)
-2025-06-02 22:53:31 - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-02 22:53:31 - Graceful shutdown complete
-2025-06-02 22:53:31 - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-06-02 22:53:31 - HikariPool-1 - Shutdown initiated...
-2025-06-02 22:53:31 - HikariPool-1 - Shutdown completed.
+2025-06-07 19:30:09 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:30:09 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:30:09 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:30:09 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:30:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-07 19:30:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:30:16 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-07 19:30:18 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'remboursementService': Unsatisfied dependency expressed through field 'remboursementRepository': Error creating bean with name 'remboursementRepository' defined in com.example.Assurance.Repository.RemboursementRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List)
+2025-06-07 19:30:18 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:30:18 - HikariPool-1 - Shutdown initiated...
+2025-06-07 19:30:18 - HikariPool-1 - Shutdown completed.
+2025-06-07 19:30:18 - Stopping service [Tomcat]
+2025-06-07 19:30:18 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-07 19:30:18 - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'remboursementService': Unsatisfied dependency expressed through field 'remboursementRepository': Error creating bean with name 'remboursementRepository' defined in com.example.Assurance.Repository.RemboursementRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.example.Assurance.AssuranceApplication.main(AssuranceApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'remboursementRepository' defined in com.example.Assurance.Repository.RemboursementRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1682)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List)
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:120)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:104)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:92)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:92)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:431)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
+	at org.springframework.data.util.Lazy.get(Lazy.java:113)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	... 34 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:128)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:260)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:99)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:116)
+	... 46 common frames omitted
+Caused by: java.lang.IllegalStateException: Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByFeuilleDeMaladieIdFeuilleAndMoyenDePaiement(java.lang.Integer,java.util.List)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.throwExceptionOnArgumentMismatch(PartTreeJpaQuery.java:176)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.validate(PartTreeJpaQuery.java:149)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:102)
+	... 50 common frames omitted
+2025-06-07 19:31:48 - Starting AssuranceApplication using Java 23 with PID 11722 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-07 19:31:48 - No active profile set, falling back to 1 default profile: "default"
+2025-06-07 19:31:49 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-07 19:31:49 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-07 19:31:53 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-07 19:31:53 - Finished Spring Data repository scanning in 332 ms. Found 11 JPA repository interfaces.
+2025-06-07 19:31:56 - Tomcat initialized with port 8080 (http)
+2025-06-07 19:31:56 - Starting service [Tomcat]
+2025-06-07 19:31:56 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-07 19:31:56 - Initializing Spring embedded WebApplicationContext
+2025-06-07 19:31:56 - Root WebApplicationContext: initialization completed in 7042 ms
+2025-06-07 19:31:57 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-07 19:31:57 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-07 19:31:57 - HHH000026: Second-level cache disabled
+2025-06-07 19:31:59 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-07 19:31:59 - HikariPool-1 - Starting...
+2025-06-07 19:32:00 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f97e5b8
+2025-06-07 19:32:00 - HikariPool-1 - Start completed.
+2025-06-07 19:32:00 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-07 19:32:02 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:32:02 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:32:02 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:32:02 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:32:06 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-07 19:32:07 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:32:09 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-07 19:32:12 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'remboursementService': Unsatisfied dependency expressed through field 'remboursementRepository': Error creating bean with name 'remboursementRepository' defined in com.example.Assurance.Repository.RemboursementRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List)
+2025-06-07 19:32:12 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:32:12 - HikariPool-1 - Shutdown initiated...
+2025-06-07 19:32:12 - HikariPool-1 - Shutdown completed.
+2025-06-07 19:32:12 - Stopping service [Tomcat]
+2025-06-07 19:32:12 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-07 19:32:12 - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'remboursementService': Unsatisfied dependency expressed through field 'remboursementRepository': Error creating bean with name 'remboursementRepository' defined in com.example.Assurance.Repository.RemboursementRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.example.Assurance.AssuranceApplication.main(AssuranceApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'remboursementRepository' defined in com.example.Assurance.Repository.RemboursementRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1682)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Reason: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List)
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:120)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:104)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:92)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:92)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:431)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
+	at org.springframework.data.util.Lazy.get(Lazy.java:113)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	... 34 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List); Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:128)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:260)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:99)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:116)
+	... 46 common frames omitted
+Caused by: java.lang.IllegalStateException: Operator SIMPLE_PROPERTY on moyenDePaiement requires a scalar argument, found interface java.util.List in method public abstract java.util.List com.example.Assurance.Repository.RemboursementRepository.findByMoyenDePaiement(java.util.List)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.throwExceptionOnArgumentMismatch(PartTreeJpaQuery.java:176)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.validate(PartTreeJpaQuery.java:149)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:102)
+	... 50 common frames omitted
+2025-06-07 19:48:43 - Starting AssuranceApplication using Java 23 with PID 12288 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-07 19:48:43 - No active profile set, falling back to 1 default profile: "default"
+2025-06-07 19:48:44 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-07 19:48:44 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-07 19:48:48 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-07 19:48:48 - Finished Spring Data repository scanning in 323 ms. Found 11 JPA repository interfaces.
+2025-06-07 19:48:50 - Tomcat initialized with port 8080 (http)
+2025-06-07 19:48:50 - Starting service [Tomcat]
+2025-06-07 19:48:50 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-07 19:48:51 - Initializing Spring embedded WebApplicationContext
+2025-06-07 19:48:51 - Root WebApplicationContext: initialization completed in 6552 ms
+2025-06-07 19:48:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-07 19:48:52 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-07 19:48:52 - HHH000026: Second-level cache disabled
+2025-06-07 19:48:53 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-07 19:48:53 - HikariPool-1 - Starting...
+2025-06-07 19:48:54 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@242d20cd
+2025-06-07 19:48:54 - HikariPool-1 - Start completed.
+2025-06-07 19:48:54 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-07 19:48:56 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:48:56 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-07 19:48:56 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:48:56 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-07 19:48:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-07 19:49:00 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 19:49:02 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-07 19:49:04 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-07 19:49:05 - LiveReload server is running on port 35729
+2025-06-07 19:49:05 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-07 19:49:05 - Started AssuranceApplication in 24.971 seconds (process running for 28.12)
+2025-06-07 19:49:22 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-07 19:49:22 - Initializing Servlet 'dispatcherServlet'
+2025-06-07 19:49:22 - Completed initialization in 8 ms
+2025-06-07 20:27:55 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-07 20:27:55 - Graceful shutdown complete
+2025-06-07 20:27:55 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-07 20:27:55 - HikariPool-1 - Shutdown initiated...
+2025-06-07 20:27:55 - HikariPool-1 - Shutdown completed.
