@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interface Médecin - Sécurité Sociale</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <style>
         * {
             margin: 0;
@@ -114,6 +115,12 @@
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
         }
 
         .modal {
@@ -279,14 +286,14 @@
         <p>Système de Gestion de la Sécurité Sociale</p>
         <div class="user-info">
             <div>
-                <strong>Dr. Lefèvre</strong> - Médecin Généraliste
-                <br><small>Connecté le 6 juin 2025 à 08:30</small>
+                <strong th:text="${medecinName}"></strong> - <span th:text="${medecinType} == 'SPECIALITE' ? 'Médecin Généraliste' : 'Médecin Spécialiste'"></span>
+                <br><small>Connecté le <span th:text="${loginTime}"></span></small>
             </div>
             <button class="logout-btn" onclick="logout()">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.59L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
-                </svg>
-                Déconnexion
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.59L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+            </svg>
+            Déconnexion
             </button>
         </div>
     </div>
@@ -329,7 +336,7 @@
             <button class="btn" onclick="openModal('medicamentModal')">Prescrire Médicaments</button>
         </div>
 
-        <div class="menu-card">
+        <div class="menu-card" th:classappend="${medecinType} == 'GENERALISTE' ? '' : 'disabled'">
             <h3>
                 <svg class="icon" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -337,7 +344,7 @@
                 Consultation Spécialisée
             </h3>
             <p>Prescrire une consultation chez un médecin spécialiste (généralistes uniquement).</p>
-            <button class="btn" onclick="openModal('specialisteModal')">Prescrire Spécialiste</button>
+            <button class="btn" onclick="${medecinType} == 'SPECIALISTE' ? 'openModal(\'specialisteModal\')' : ''" disabled="${medecinType} != 'SPECIALISTE'">Prescrire Spécialiste</button>
         </div>
 
         <div class="menu-card">
@@ -356,40 +363,40 @@
 <!-- Modal Consultation -->
 <div id="consultationModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('consultationModal')">&times;</span>
+        <span class="close" onclick="closeModal('consultationModal')">×</span>
         <h2>📋 Enregistrer une Consultation</h2>
-        <form onsubmit="enregistrerConsultation(event)">
+        <form id="consultationForm">
             <div class="form-group">
                 <label>Numéro de Patient</label>
-                <input type="number" id="numPatient" placeholder="Ex: 1001" required>
+                <input type="number" id="numPatient" name="numPatient" placeholder="Ex: 1001" required>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="date" id="dateConsultation" required>
+                    <input type="date" id="dateConsultation" name="dateConsultation" required>
                 </div>
                 <div class="form-group">
                     <label>Heure</label>
-                    <input type="time" id="heureConsultation" required>
+                    <input type="time" id="heureConsultation" name="heureConsultation" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Durée (heures)</label>
-                    <input type="number" step="0.5" id="dureeConsultation" placeholder="0.5" required>
+                    <input type="number" step="0.5" id="dureeConsultation" name="dureeConsultation" placeholder="0.5" required>
                 </div>
                 <div class="form-group">
                     <label>Frais (€)</label>
-                    <input type="number" step="0.01" id="fraisConsultation" placeholder="50.00" required>
+                    <input type="number" step="0.01" id="fraisConsultation" name="fraisConsultation" placeholder="50.00" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Statut</label>
-                    <select id="statutConsultation" required>
+                    <select id="statutConsultation" name="statutConsultation" required>
                         <option value="terminée">Terminée</option>
                         <option value="planifiée">Planifiée</option>
                         <option value="annulée">Annulée</option>
@@ -397,7 +404,7 @@
                 </div>
                 <div class="form-group">
                     <label>Mode de Paiement</label>
-                    <select id="modePaiement" required>
+                    <select id="modePaiement" name="modePaiement" required>
                         <option value="virement">Virement</option>
                         <option value="cash">Cash</option>
                     </select>
@@ -406,7 +413,7 @@
 
             <div class="form-group">
                 <label>Commentaires</label>
-                <textarea id="commentaires" rows="3" placeholder="Diagnostic, observations..."></textarea>
+                <textarea id="commentaires" name="commentaires" rows="3" placeholder="Diagnostic, observations..."></textarea>
             </div>
 
             <button type="submit" class="btn">Enregistrer la Consultation</button>
@@ -417,17 +424,17 @@
 <!-- Modal Médicaments -->
 <div id="medicamentModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('medicamentModal')">&times;</span>
+        <span class="close" onclick="closeModal('medicamentModal')">×</span>
         <h2>💊 Prescrire des Médicaments</h2>
-        <form onsubmit="prescrireMedicaments(event)">
+        <form id="medicamentForm">
             <div class="form-group">
                 <label>ID de la Consultation</label>
-                <input type="number" id="idConsultationMed" placeholder="Ex: 4001" required>
+                <input type="number" id="idConsultationMed" name="idConsultationMed" placeholder="Ex: 4001" required>
             </div>
 
             <div class="form-group">
                 <label>Médicament</label>
-                <select id="medicamentSelect" required>
+                <select id="medicamentSelect" name="medicamentSelect" required>
                     <option value="">Sélectionner un médicament</option>
                     <option value="5001">Paracétamol</option>
                     <option value="5002">Amoxicilline</option>
@@ -438,12 +445,12 @@
 
             <div class="form-group">
                 <label>Quantité</label>
-                <input type="number" id="quantiteMedicament" min="1" placeholder="2" required>
+                <input type="number" id="quantiteMedicament" name="quantiteMedicament" min="1" placeholder="2" required>
             </div>
 
             <div class="form-group">
                 <label>Instructions</label>
-                <textarea id="instructionsMedicament" rows="2" placeholder="Ex: 1 comprimé 3 fois par jour"></textarea>
+                <textarea id="instructionsMedicament" name="instructionsMedicament" rows="2" placeholder="Ex: 1 comprimé 3 fois par jour"></textarea>
             </div>
 
             <button type="submit" class="btn">Prescrire le Médicament</button>
@@ -454,17 +461,17 @@
 <!-- Modal Spécialiste -->
 <div id="specialisteModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('specialisteModal')">&times;</span>
+        <span class="close" onclick="closeModal('specialisteModal')">×</span>
         <h2>⭐ Prescrire une Consultation Spécialisée</h2>
-        <form onsubmit="prescrireSpecialiste(event)">
+        <form id="specialisteForm">
             <div class="form-group">
                 <label>ID Consultation Initiale</label>
-                <input type="number" id="idConsultationInit" placeholder="Ex: 4001" required>
+                <input type="number" id="idConsultationInit" name="idConsultationInit" placeholder="Ex: 4001" required>
             </div>
 
             <div class="form-group">
                 <label>Médecin Spécialiste</label>
-                <select id="specialisteSelect" required>
+                <select id="specialisteSelect" name="specialisteSelect" required>
                     <option value="">Sélectionner un spécialiste</option>
                     <option value="3001">Dr. Girard - Cardiologue</option>
                     <option value="3002">Dr. Moreau - Dermatologue</option>
@@ -476,17 +483,17 @@
             <div class="form-row">
                 <div class="form-group">
                     <label>Date de la Consultation</label>
-                    <input type="date" id="dateSpecialiste" required>
+                    <input type="date" id="dateSpecialiste" name="dateSpecialiste" required>
                 </div>
                 <div class="form-group">
                     <label>Heure</label>
-                    <input type="time" id="heureSpecialiste" required>
+                    <input type="time" id="heureSpecialiste" name="heureSpecialiste" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Motif de la Consultation</label>
-                <textarea id="motifSpecialiste" rows="3" placeholder="Raison de l'orientation vers le spécialiste..."></textarea>
+                <textarea id="motifSpecialiste" name="motifSpecialiste" rows="3" placeholder="Raison de l'orientation vers le spécialiste..."></textarea>
             </div>
 
             <button type="submit" class="btn">Prescrire la Consultation</button>
@@ -497,20 +504,12 @@
 <!-- Modal Patients -->
 <div id="patientsModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('patientsModal')">&times;</span>
+        <span class="close" onclick="closeModal('patientsModal')">×</span>
         <h2>👥 Mes Patients</h2>
         <div class="patient-list">
-            <div class="patient-item" onclick="voirDetailPatient(1001)">
-                <strong>Sophie Martin</strong> - N° 1001<br>
-                <small>Dernière consultation: 6 juin 2025</small>
-            </div>
-            <div class="patient-item" onclick="voirDetailPatient(1002)">
-                <strong>Jean Dupont</strong> - N° 1002<br>
-                <small>Dernière consultation: 5 juin 2025</small>
-            </div>
-            <div class="patient-item" onclick="voirDetailPatient(1003)">
-                <strong>Marie Durand</strong> - N° 1003<br>
-                <small>Dernière consultation: 4 juin 2025</small>
+            <div class="patient-item" th:onclick="'voirDetailPatient(' + ${patient.id} + ')'" th:each="patient : ${patients}">
+                <strong th:text="${patient.nom}"></strong> - N° <span th:text="${patient.id}"></span><br>
+                <small>Dernière consultation: <span th:text="${patient.dernierConsultation != null ? #calendars.format(patient.dernierConsultation, 'd MMMM yyyy') : 'Aucune'}"></span></small>
             </div>
         </div>
     </div>
@@ -527,6 +526,7 @@
         const currentTime = now.getHours().toString().padStart(2, '0') + ':' +
                           now.getMinutes().toString().padStart(2, '0');
         document.getElementById('heureConsultation').value = currentTime;
+        document.getElementById('heureSpecialiste').value = currentTime;
     });
 
     function openModal(modalId) {
@@ -549,7 +549,6 @@
         const modePaiement = document.getElementById('modePaiement').value;
         const commentaires = document.getElementById('commentaires').value;
 
-        // Simulation de l'enregistrement
         const consultationId = Math.floor(Math.random() * 9000) + 4000;
         const feuilleId = Math.floor(Math.random() * 3000) + 3000;
 
@@ -634,8 +633,7 @@
 
     function logout() {
         if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
-            alert('Déconnexion en cours...');
-            // Redirection vers la page de login
+            window.location.href = '/';
         }
     }
 

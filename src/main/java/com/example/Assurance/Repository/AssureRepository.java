@@ -13,4 +13,5 @@ public interface AssureRepository extends JpaRepository<Assure, Integer> {
     List<Assure> findByMedecinGeneralisteNumMedGen(Integer numMedGen);
     List<Assure> findByDateNaissanceBetween(LocalDate startDate, LocalDate endDate);
     boolean existsByNumPatient(Integer numPatient); // Pour vérifier l'existence d'un assuré
+
 }

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Système de Gestion de Sécurité Sociale</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <style>
         * {
             margin: 0;
@@ -250,7 +251,7 @@
             padding: 15px;
             border-radius: 12px;
             margin-bottom: 20px;
-            display: none;
+            display: th:block th:unless="${error == null}" th:text="${error}">
         }
 
         .success-message {
@@ -294,17 +295,17 @@
 
     <div class="auth-right">
         <div class="auth-tabs">
-            <div class="auth-tab active">Connexion</div>
+            <div class="auth-tab active" data-tab="login">Connexion</div>
         </div>
 
         <!-- Messages d'erreur et de succès -->
-        <div class="error-message" id="errorMessage"></div>
-        <div class="success-message" id="successMessage"></div>
+        <div class="error-message" th:if="${error}" th:text="${error}">Identifiants incorrects.</div>
+        <div class="success-message" th:if="${success}" th:text="${success}"></div>
 
         <!-- Formulaire de Connexion -->
         <div class="form-container active" id="loginForm">
             <div class="user-type-selector">
-                <div class="user-type selected" data-type="agent">
+                <div class="user-type" data-type="agent">
                     <div class="user-type-icon">👤</div>
                     <div class="user-type-title">Agent</div>
                     <div class="user-type-desc">Sécurité Sociale</div>
@@ -316,169 +317,35 @@
                 </div>
             </div>
 
-            <form id="loginFormElement">
+            <form th:action="@{/}" method="post" id="loginFormElement">
+                <input type="hidden" name="userType" id="userType" value="agent">
                 <div class="form-group">
-                    <label for="loginUsername">Nom d'utilisateur</label>
-                    <input type="text" id="loginUsername" name="username" required>
+                    <label for="login">Nom d'utilisateur</label>
+                    <input type="text" id="login" name="login" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="loginPassword">Mot de passe</label>
-                    <input type="password" id="loginPassword" name="password" required>
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
                 </div>
-
                 <button type="submit" class="auth-button">Se connecter</button>
             </form>
-
-            <div class="form-footer">
-                <!-- Lien d'inscription supprimé -->
-            </div>
         </div>
     </div>
 </div>
 
-<script>
-    // Variables globales
-    let currentTab = 'login';
-    let selectedUserType = 'agent';
-
-    // Initialisation
+<script th:src="@{/js/scripts.js}">
     document.addEventListener('DOMContentLoaded', function() {
-        setupTabSwitching();
-        setupUserTypeSelection();
-        setupFormSubmission();
-        updateUserTypeSelection();
-    });
-
-    // Gestion des onglets
-    function setupTabSwitching() {
-        const tabs = document.querySelectorAll('.auth-tab');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                const tabType = this.getAttribute('data-tab');
-                switchTab(tabType);
-            });
-        });
-    }
-
-    function switchTab(tabType) {
-        // Mise à jour des onglets
-        document.querySelectorAll('.auth-tab').forEach(tab => {
-            tab.classList.remove('active');
-        });
-        document.querySelector(`[data-tab="${tabType}"]`).classList.add('active');
-
-        // Mise à jour des formulaires
-        document.querySelectorAll('.form-container').forEach(container => {
-            container.classList.remove('active');
-        });
-        document.getElementById(tabType + 'Form').classList.add('active');
-
-        currentTab = tabType;
-        hideMessages();
-    }
-
-    // Gestion de la sélection du type d'utilisateur
-    function setupUserTypeSelection() {
         const userTypes = document.querySelectorAll('.user-type');
+        const userTypeInput = document.getElementById('userType');
+
         userTypes.forEach(type => {
             type.addEventListener('click', function() {
-                const userType = this.getAttribute('data-type');
-                selectUserType(userType);
+                userTypes.forEach(t => t.classList.remove('selected'));
+                this.classList.add('selected');
+                userTypeInput.value = this.getAttribute('data-type');
             });
         });
-    }
-
-    function selectUserType(userType) {
-        selectedUserType = userType;
-        updateUserTypeSelection();
-    }
-
-    function updateUserTypeSelection() {
-        // Mise à jour visuelle des sélections
-        document.querySelectorAll('.user-type').forEach(type => {
-            type.classList.remove('selected');
-        });
-        document.querySelectorAll(`[data-type="${selectedUserType}"]`).forEach(type => {
-            type.classList.add('selected');
-        });
-    }
-
-    // Gestion de la soumission des formulaires
-    function setupFormSubmission() {
-        // Formulaire de connexion
-        document.getElementById('loginFormElement').addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleLogin();
-        });
-    }
-
-    // Gestion de la connexion
-    function handleLogin() {
-        const username = document.getElementById('loginUsername').value;
-        const password = document.getElementById('loginPassword').value;
-
-        // Validation basique
-        if (!username || !password) {
-            showError('Veuillez remplir tous les champs.');
-            return;
-        }
-
-        // Simulation de la connexion
-        showSuccess('Connexion en cours...');
-
-        // Simulation d'un délai de connexion
-        setTimeout(() => {
-            const userData = {
-                username: username,
-                userType: selectedUserType,
-                timestamp: new Date().toISOString()
-            };
-
-            // Stockage temporaire des données utilisateur
-            sessionStorage.setItem('userData', JSON.stringify(userData));
-
-            // Redirection simulée selon le type d'utilisateur
-            if (selectedUserType === 'agent') {
-                showSuccess('Connexion réussie ! Redirection vers le tableau de bord Agent...');
-                setTimeout(() => {
-                    alert('Redirection vers le dashboard Agent (à implémenter)');
-                }, 1500);
-            } else {
-                showSuccess('Connexion réussie ! Redirection vers le tableau de bord Médecin...');
-                setTimeout(() => {
-                    alert('Redirection vers le dashboard Médecin (à implémenter)');
-                }, 1500);
-            }
-        }, 1000);
-    }
-
-    // Gestion des messages
-    function showError(message) {
-        const errorDiv = document.getElementById('errorMessage');
-        errorDiv.textContent = message;
-        errorDiv.style.display = 'block';
-
-        const successDiv = document.getElementById('successMessage');
-        successDiv.style.display = 'none';
-
-        // Masquer automatiquement après 5 secondes
-        setTimeout(hideMessages, 5000);
-    }
-
-    function showSuccess(message) {
-        const successDiv = document.getElementById('successMessage');
-        successDiv.textContent = message;
-        successDiv.style.display = 'block';
-
-        const errorDiv = document.getElementById('errorMessage');
-        errorDiv.style.display = 'none';
-    }
-
-    function hideMessages() {
-        document.getElementById('errorMessage').style.display = 'none';
-        document.getElementById('successMessage').style.display = 'none';
-    }
+    });
 </script>
 </body>
 </html>

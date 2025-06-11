@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interface Agent - Sécurité Sociale</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <style>
         * {
             margin: 0;
@@ -273,14 +274,15 @@
     </style>
 </head>
 <body>
+
 <div class="container">
     <div class="header">
         <h1>🏢 Interface Agent</h1>
         <p>Système de Gestion de la Sécurité Sociale</p>
         <div class="user-info">
             <div>
-                <strong>Agent Dupont</strong> - Agent Sécurité Sociale
-                <br><small>Connecté le 7 juin 2025 à 07:01 PM WAT</small>
+                <strong th:text="${agentName}"></strong> - Agent Sécurité Sociale
+                <br><small>Connecté le <span th:text="${loginTime}"></span></small>
             </div>
             <button class="logout-btn" onclick="logout()">
                 <svg class="icon" viewBox="0 0 24 24">
@@ -350,63 +352,89 @@
             <p>Consulter et gérer la liste des assurés enregistrés.</p>
             <button class="btn" onclick="openModal('assuresModal')">Voir les Assurés</button>
         </div>
+
+        <div class="menu-card">
+            <h3>
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+                </svg>
+                Inscrire un Assuré
+            </h3>
+            <p>Enregistrer un nouvel assuré dans le système.</p>
+            <button class="btn" onclick="openModal('inscrireAssureModal')">Inscrire Assuré</button>
+        </div>
     </div>
 </div>
 
 <!-- Modal Associer Médecin Traitant -->
+
 <div id="associerMedecinModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('associerMedecinModal')">×</span>
         <h2>👨‍⚕️ Associer un Médecin Traitant</h2>
-        <form onsubmit="associerMedecin(event)">
+
+        <div id="associationMessage" class="success-message" style="display: none;"></div>
+
+        <form id="associerMedecinForm" th:action="@{/assure/association}" method="post">
             <div class="form-group">
-                <label>Numéro de l'Assuré</label>
-                <input type="number" id="numAssure" placeholder="Ex: 1001" required>
+                <label for="numAssure">Numéro de l'Assuré</label>
+                <input type="number" id="numAssure" name="numAssure"
+                       placeholder="Ex: 1001" required>
             </div>
+
             <div class="form-group">
-                <label>Médecin Généraliste</label>
-                <select id="medecinSelect" required>
+                <label for="medecinId">Médecin Généraliste</label>
+                <select id="medecinId" name="numMedGen" required>
                     <option value="">Sélectionner un médecin</option>
-                    <option value="2001">Dr. Lefèvre</option>
-                    <option value="2002">Dr. Durand</option>
-                    <option value="2003">Dr. Petit</option>
+                    <option th:each="medecin : ${medecins}"
+                            th:value="${medecin.numMedGen}"
+                            th:text="${'Dr. ' + medecin.nom + ' ' + medecin.prenom}">
+                    </option>
                 </select>
+                <div class="assure-item"
+                     th:onclick="'prefillAssureNumber(' + ${assure.numPatient} + ')'"
+                     th:each="assure : ${assures}">
+                    <strong th:text="${assure.nom} + ' ' + ${assure.prenom}"></strong> - N° <span th:text="${assure.numPatient}"></span><br>
+                    <small>Médecin: <span th:text="${assure.medecinGeneraliste != null ? assure.medecinGeneraliste.nom : 'Aucun'}"></span></small>
+                </div>
             </div>
+
             <button type="submit" class="btn">Associer le Médecin</button>
         </form>
     </div>
 </div>
+
 
 <!-- Modal Enregistrer Feuille de Maladie -->
 <div id="feuilleMaladieModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('feuilleMaladieModal')">×</span>
         <h2>📄 Enregistrer une Feuille de Maladie</h2>
-        <form onsubmit="enregistrerFeuilleMaladie(event)">
+        <form id="feuilleMaladieForm">
             <div class="form-group">
                 <label>Numéro de l'Assuré</label>
-                <input type="number" id="numAssureFeuille" placeholder="Ex: 1001" required>
+                <input type="number" id="numAssureFeuille" name="numAssureFeuille" placeholder="Ex: 1001" required>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label>Date d'Émission</label>
-                    <input type="date" id="dateEmission" required>
+                    <input type="date" id="dateEmission" name="dateEmission" required>
                 </div>
                 <div class="form-group">
                     <label>Frais (€)</label>
-                    <input type="number" step="0.01" id="fraisFeuille" placeholder="50.00" required>
+                    <input type="number" step="0.01" id="fraisFeuille" name="fraisFeuille" placeholder="50.00" required>
                 </div>
             </div>
             <div class="form-group">
                 <label>Mode de Paiement</label>
-                <select id="modePaiementFeuille" required>
+                <select id="modePaiementFeuille" name="modePaiementFeuille" required>
                     <option value="virement">Virement</option>
                     <option value="cash">Cash</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Commentaires</label>
-                <textarea id="commentairesFeuille" rows="3" placeholder="Diagnostic, observations..."></textarea>
+                <textarea id="commentairesFeuille" name="commentairesFeuille" rows="3" placeholder="Diagnostic, observations..."></textarea>
             </div>
             <button type="submit" class="btn">Enregistrer la Feuille</button>
         </form>
@@ -418,21 +446,21 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('remboursementModal')">×</span>
         <h2>💰 Effectuer un Remboursement</h2>
-        <form onsubmit="effectuerRemboursement(event)">
+        <form id="remboursementForm">
             <div class="form-group">
                 <label>ID de la Feuille de Maladie</label>
-                <input type="number" id="idFeuille" placeholder="Ex: 3001" required>
+                <input type="number" id="idFeuille" name="idFeuille" placeholder="Ex: 3001" required>
             </div>
             <div class="form-group">
                 <label>Moyen de Paiement</label>
-                <select id="moyenPaiement" required>
+                <select id="moyenPaiement" name="moyenPaiement" required>
                     <option value="virement">Virement</option>
                     <option value="cash">Cash</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Statut</label>
-                <select id="statutRemboursement" required>
+                <select id="statutRemboursement" name="statutRemboursement" required>
                     <option value="en cours">En cours</option>
                     <option value="terminé">Terminé</option>
                 </select>
@@ -448,19 +476,46 @@
         <span class="close" onclick="closeModal('assuresModal')">×</span>
         <h2>👥 Liste des Assurés</h2>
         <div class="assure-list">
-            <div class="assure-item" onclick="voirDetailAssure(1001)">
-                <strong>Sophie Martin</strong> - N° 1001<br>
-                <small>Médecin Traitant: Dr. Lefèvre</small>
-            </div>
-            <div class="assure-item" onclick="voirDetailAssure(1002)">
-                <strong>Jean Dupont</strong> - N° 1002<br>
-                <small>Médecin Traitant: Dr. Durand</small>
-            </div>
-            <div class="assure-item" onclick="voirDetailAssure(1003)">
-                <strong>Marie Durand</strong> - N° 1003<br>
-                <small>Médecin Traitant: Aucun</small>
+            <div class="assure-item" th:onclick="'voirDetailAssure(' + ${assure.numPatient} + ')'" th:each="assure : ${assures}">
+                <strong th:text="${assure.nom} + ' ' + ${assure.prenom}"></strong> - N° <span th:text="${assure.numPatient}"></span><br>
+                <small>Médecin Traitant: <span th:text="${assure.medecinGeneraliste != null ? assure.medecinGeneraliste.nom : 'Aucun'}"></span></small>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Modal Inscrire un Assuré -->
+<div id="inscrireAssureModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('inscrireAssureModal')">×</span>
+        <h2>📋 Inscrire un Assuré</h2>
+        <form th:action="@{/assure/inscription}" th:object="${assure}" method="post" id="inscrireAssureForm">
+            <div class="form-group">
+                <label>Nom de l'Assuré</label>
+                <input type="text" th:field="*{nom}" id="nomAssure" name="nom" placeholder="Ex: Dupont" required>
+                <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label>Prénom de l'Assuré</label>
+                <input type="text" th:field="*{prenom}" id="prenomAssure" name="prenom" placeholder="Ex: Jean" required>
+                <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label>Date de Naissance</label>
+                <input type="date" th:field="*{dateNaissance}" id="dateNaissanceAssure" name="date_naissance" required>
+                <span th:if="${#fields.hasErrors('dateNaissance')}" th:errors="*{dateNaissance}" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label>Sexe</label>
+                <select th:field="*{sexe}" id="sexeAssure" name="sexe" required>
+                    <option value="">Sélectionner le sexe</option>
+                    <option value="Masculin">Masculin</option>
+                    <option value="Feminin">Féminin</option>
+                </select>
+                <span th:if="${#fields.hasErrors('sexe')}" th:errors="*{sexe}" class="error"></span>
+            </div>
+            <button type="submit" class="btn">Inscrire l'Assuré</button>
+        </form>
     </div>
 </div>
 
@@ -518,6 +573,54 @@
             successDiv.innerHTML = `✅ <strong>Médecin associé avec succès !</strong><br>Assuré N° ${numAssure} - Médecin N° ${medecin}`;
         });
     }
+    // Gestion spécifique du formulaire d'association médecin
+document.getElementById('associerMedecinForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const numAssure = document.getElementById('numAssure').value;
+    const medecinId = document.getElementById('medecinId').value;
+    const messageDiv = document.getElementById('associationMessage');
+
+    // Validation
+    if (!numAssure || !medecinId) {
+        showMessage('❌ Veuillez remplir tous les champs', 'error');
+        return;
+    }
+
+    // Simulation d'envoi (remplacer par un vrai fetch en production)
+    setTimeout(() => {
+        showMessage(`✅ Médecin ${medecinId} associé avec succès à l'assuré ${numAssure}`, 'success');
+
+        // Réinitialisation après 2 secondes
+        setTimeout(() => {
+            messageDiv.style.display = 'none';
+            if (messageDiv.className.includes('success')) {
+                closeModal('associerMedecinModal');
+                this.reset();
+            }
+        }, 2000);
+    }, 800);
+});
+
+function showMessage(text, type) {
+    const messageDiv = document.getElementById('associationMessage');
+    messageDiv.textContent = text;
+    messageDiv.style.display = 'block';
+    messageDiv.className = 'success-message ' + type;
+
+    // Style supplémentaire pour les erreurs
+    if (type === 'error') {
+        messageDiv.style.backgroundColor = '#ffebee';
+        messageDiv.style.borderLeft = '4px solid #f44336';
+        messageDiv.style.color = '#c62828';
+    }
+}
+
+// Fonction pour pré-remplir le numéro d'assuré si on clique depuis la liste
+function prefillAssureNumber(numAssure) {
+    document.getElementById('numAssure').value = numAssure;
+    openModal('associerMedecinModal');
+}
 
     // Enregistrer une Feuille de Maladie
     function enregistrerFeuilleMaladie(event) {
@@ -545,6 +648,18 @@
         });
     }
 
+    // Inscrire un Assuré
+    function inscrireAssure(event) {
+        handleFormSubmission(event, (e, successDiv) => {
+            const nomAssure = document.getElementById('nomAssure').value;
+            const numSecuAssure = document.getElementById('numSecuAssure').value;
+            const dateNaissanceAssure = document.getElementById('dateNaissanceAssure').value;
+            if (!nomAssure || !numSecuAssure || !dateNaissanceAssure) throw new Error('Tous les champs sont requis.');
+            const assureId = Math.floor(Math.random() * 1000) + 1000;
+            successDiv.innerHTML = `✅ <strong>Assuré inscrit avec succès !</strong><br>ID Assuré : ${assureId}<br>Nom : ${nomAssure}`;
+        });
+    }
+
     // Voir Détails d'un Assuré
     function voirDetailAssure(numAssure) {
         alert(`Affichage des détails de l'assuré N° ${numAssure}\n\nFonctionnalité à implémenter : historique des consultations, remboursements, etc.`);
@@ -553,8 +668,7 @@
     // Déconnexion
     function logout() {
         if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
-            alert('Déconnexion en cours...');
-            // Redirection vers la page de login
+            window.location.href = '/'; // Redirection vers la page de login
         }
     }
 

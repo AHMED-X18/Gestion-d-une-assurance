@@ -26,7 +26,7 @@ public class PrescritParGeneraliste {
     private MedecinGeneraliste medecinGeneraliste;
 
     @Column(name = "Qte", nullable = false)
-    private Integer qte;
+    private Integer quantite;
 
     @Embeddable
     public static class PrescritParGeneralisteId implements Serializable {

@@ -44,7 +44,7 @@ public class PrescriptionService {
         if (medicament.isPresent()) {
             PrescritParGeneraliste prescription = new PrescritParGeneraliste();
             prescription.setMedicament(medicament.get());
-            prescription.setQte(qte);
+            prescription.setQuantite(qte);
             // Logique pour lier au médecin (à compléter avec le contexte)
             prescritParGeneralisteRepository.save(prescription);
             return true;

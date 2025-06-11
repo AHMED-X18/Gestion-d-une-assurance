@@ -38,4 +38,8 @@ public class MedecinService {
     public List<MedecinGeneraliste> trouverMedecinsParNomOuPrenom(String nom, String prenom) {
         return medecinGeneralisteRepository.findByNomOrPrenom(nom, prenom);
     }
+
+    public List<MedecinGeneraliste> getAllMedecins(){
+        return medecinGeneralisteRepository.findAll();
+    }
 }
