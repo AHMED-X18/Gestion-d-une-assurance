@@ -117,12 +117,6 @@
             box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
         }
 
-        .btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-
         .modal {
             display: none;
             position: fixed;
@@ -286,14 +280,14 @@
         <p>Système de Gestion de la Sécurité Sociale</p>
         <div class="user-info">
             <div>
-                <strong th:text="${medecinName}"></strong> - <span th:text="${medecinType} == 'SPECIALITE' ? 'Médecin Généraliste' : 'Médecin Spécialiste'"></span>
+                <strong th:text="${medecinName}"></strong> - <span th:text="${medecinType} == 'GENERALISTE' ? 'Médecin Généraliste' : 'Médecin Spécialiste'"></span>
                 <br><small>Connecté le <span th:text="${loginTime}"></span></small>
             </div>
             <button class="logout-btn" onclick="logout()">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.59L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
-            </svg>
-            Déconnexion
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.59L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                </svg>
+                Déconnexion
             </button>
         </div>
     </div>
@@ -317,12 +311,12 @@
         <div class="menu-card">
             <h3>
                 <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                 </svg>
-                Gérer les Consultations
+                Enregistrer Feuille de Maladie
             </h3>
-            <p>Enregistrer une nouvelle consultation et créer une feuille de maladie pour vos patients.</p>
-            <button class="btn" onclick="openModal('consultationModal')">Nouvelle Consultation</button>
+            <p>Enregistrer une nouvelle feuille de maladie pour un patient.</p>
+            <button class="btn" onclick="openModal('feuilleMaladieModal')">Enregistrer Feuille</button>
         </div>
 
         <div class="menu-card">
@@ -336,15 +330,15 @@
             <button class="btn" onclick="openModal('medicamentModal')">Prescrire Médicaments</button>
         </div>
 
-        <div class="menu-card" th:classappend="${medecinType} == 'GENERALISTE' ? '' : 'disabled'">
+        <div class="menu-card">
             <h3>
                 <svg class="icon" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
                 Consultation Spécialisée
             </h3>
-            <p>Prescrire une consultation chez un médecin spécialiste (généralistes uniquement).</p>
-            <button class="btn" onclick="${medecinType} == 'SPECIALISTE' ? 'openModal(\'specialisteModal\')' : ''" disabled="${medecinType} != 'SPECIALISTE'">Prescrire Spécialiste</button>
+            <p>Prescrire une consultation chez un médecin spécialiste.</p>
+            <button class="btn" onclick="openModal('specialisteModal')">Prescrire Spécialiste</button>
         </div>
 
         <div class="menu-card">
@@ -360,63 +354,38 @@
     </div>
 </div>
 
-<!-- Modal Consultation -->
-<div id="consultationModal" class="modal">
+<!-- Modal Feuille de Maladie -->
+<div id="feuilleMaladieModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('consultationModal')">×</span>
-        <h2>📋 Enregistrer une Consultation</h2>
-        <form id="consultationForm">
+        <span class="close" onclick="closeModal('feuilleMaladieModal')">×</span>
+        <h2>📄 Enregistrer une Feuille de Maladie</h2>
+        <form id="feuilleMaladieForm" th:action="@{/medecin/feuille-maladie}" method="post">
             <div class="form-group">
                 <label>Numéro de Patient</label>
-                <input type="number" id="numPatient" name="numPatient" placeholder="Ex: 1001" required>
+                <input type="number" id="numPatientFeuille" name="numPatientFeuille" placeholder="Ex: 1001" required>
             </div>
-
             <div class="form-row">
                 <div class="form-group">
-                    <label>Date</label>
-                    <input type="date" id="dateConsultation" name="dateConsultation" required>
-                </div>
-                <div class="form-group">
-                    <label>Heure</label>
-                    <input type="time" id="heureConsultation" name="heureConsultation" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Durée (heures)</label>
-                    <input type="number" step="0.5" id="dureeConsultation" name="dureeConsultation" placeholder="0.5" required>
+                    <label>Date d'Émission</label>
+                    <input type="date" id="dateEmission" name="dateEmission" required>
                 </div>
                 <div class="form-group">
                     <label>Frais (€)</label>
-                    <input type="number" step="0.01" id="fraisConsultation" name="fraisConsultation" placeholder="50.00" required>
+                    <input type="number" step="0.01" id="fraisFeuille" name="fraisFeuille" placeholder="50.00" required>
                 </div>
             </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Statut</label>
-                    <select id="statutConsultation" name="statutConsultation" required>
-                        <option value="terminée">Terminée</option>
-                        <option value="planifiée">Planifiée</option>
-                        <option value="annulée">Annulée</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Mode de Paiement</label>
-                    <select id="modePaiement" name="modePaiement" required>
-                        <option value="virement">Virement</option>
-                        <option value="cash">Cash</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label>Mode de Paiement</label>
+                <select id="modePaiementFeuille" name="modePaiementFeuille" required>
+                    <option value="virement">Virement</option>
+                    <option value="cash">Cash</option>
+                </select>
             </div>
-
             <div class="form-group">
                 <label>Commentaires</label>
-                <textarea id="commentaires" name="commentaires" rows="3" placeholder="Diagnostic, observations..."></textarea>
+                <textarea id="commentairesFeuille" name="commentairesFeuille" rows="3" placeholder="Diagnostic, observations..."></textarea>
             </div>
-
-            <button type="submit" class="btn">Enregistrer la Consultation</button>
+            <button type="submit" class="btn">Enregistrer la Feuille</button>
         </form>
     </div>
 </div>
@@ -426,12 +395,11 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('medicamentModal')">×</span>
         <h2>💊 Prescrire des Médicaments</h2>
-        <form id="medicamentForm">
+        <form id="medicamentForm" th:action="@{/medecin/prescrire-medicament}" method="post">
             <div class="form-group">
                 <label>ID de la Consultation</label>
                 <input type="number" id="idConsultationMed" name="idConsultationMed" placeholder="Ex: 4001" required>
             </div>
-
             <div class="form-group">
                 <label>Médicament</label>
                 <select id="medicamentSelect" name="medicamentSelect" required>
@@ -442,17 +410,14 @@
                     <option value="5004">Doliprane</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label>Quantité</label>
                 <input type="number" id="quantiteMedicament" name="quantiteMedicament" min="1" placeholder="2" required>
             </div>
-
             <div class="form-group">
                 <label>Instructions</label>
                 <textarea id="instructionsMedicament" name="instructionsMedicament" rows="2" placeholder="Ex: 1 comprimé 3 fois par jour"></textarea>
             </div>
-
             <button type="submit" class="btn">Prescrire le Médicament</button>
         </form>
     </div>
@@ -463,12 +428,11 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('specialisteModal')">×</span>
         <h2>⭐ Prescrire une Consultation Spécialisée</h2>
-        <form id="specialisteForm">
+        <form id="specialisteForm" th:action="@{/medecin/prescrire-specialiste}" method="post">
             <div class="form-group">
                 <label>ID Consultation Initiale</label>
                 <input type="number" id="idConsultationInit" name="idConsultationInit" placeholder="Ex: 4001" required>
             </div>
-
             <div class="form-group">
                 <label>Médecin Spécialiste</label>
                 <select id="specialisteSelect" name="specialisteSelect" required>
@@ -479,7 +443,6 @@
                     <option value="3004">Dr. Martin - Pneumologue</option>
                 </select>
             </div>
-
             <div class="form-row">
                 <div class="form-group">
                     <label>Date de la Consultation</label>
@@ -490,12 +453,10 @@
                     <input type="time" id="heureSpecialiste" name="heureSpecialiste" required>
                 </div>
             </div>
-
             <div class="form-group">
                 <label>Motif de la Consultation</label>
                 <textarea id="motifSpecialiste" name="motifSpecialiste" rows="3" placeholder="Raison de l'orientation vers le spécialiste..."></textarea>
             </div>
-
             <button type="submit" class="btn">Prescrire la Consultation</button>
         </form>
     </div>
@@ -519,16 +480,16 @@
     // Initialisation de la date actuelle
     document.addEventListener('DOMContentLoaded', function() {
         const today = new Date().toISOString().split('T')[0];
-        document.getElementById('dateConsultation').value = today;
+        document.getElementById('dateEmission').value = today;
         document.getElementById('dateSpecialiste').value = today;
 
         const now = new Date();
         const currentTime = now.getHours().toString().padStart(2, '0') + ':' +
                           now.getMinutes().toString().padStart(2, '0');
-        document.getElementById('heureConsultation').value = currentTime;
         document.getElementById('heureSpecialiste').value = currentTime;
     });
 
+    // Gestion des modals
     function openModal(modalId) {
         document.getElementById(modalId).style.display = 'block';
     }
@@ -537,100 +498,87 @@
         document.getElementById(modalId).style.display = 'none';
     }
 
-    function enregistrerConsultation(event) {
+    // Fonction générique pour gérer les soumissions
+    function handleFormSubmission(event, callback) {
         event.preventDefault();
-
-        const numPatient = document.getElementById('numPatient').value;
-        const date = document.getElementById('dateConsultation').value;
-        const heure = document.getElementById('heureConsultation').value;
-        const duree = document.getElementById('dureeConsultation').value;
-        const frais = document.getElementById('fraisConsultation').value;
-        const statut = document.getElementById('statutConsultation').value;
-        const modePaiement = document.getElementById('modePaiement').value;
-        const commentaires = document.getElementById('commentaires').value;
-
-        const consultationId = Math.floor(Math.random() * 9000) + 4000;
-        const feuilleId = Math.floor(Math.random() * 3000) + 3000;
-
         const successDiv = document.createElement('div');
         successDiv.className = 'success-message';
-        successDiv.innerHTML = `
-            ✅ <strong>Consultation enregistrée avec succès !</strong><br>
-            ID Consultation : ${consultationId}<br>
-            ID Feuille de Maladie : ${feuilleId}<br>
-            Patient N° ${numPatient} - ${date} à ${heure}
-        `;
 
-        const form = event.target;
-        form.parentNode.insertBefore(successDiv, form);
-        form.reset();
+        try {
+            callback(event, successDiv);
+        } catch (error) {
+            successDiv.innerHTML = `❌ Erreur : ${error.message}`;
+            event.target.parentNode.insertBefore(successDiv, event.target);
+            setTimeout(() => successDiv.remove(), 5000);
+            return;
+        }
 
+        event.target.parentNode.insertBefore(successDiv, event.target);
         setTimeout(() => {
             successDiv.remove();
-            closeModal('consultationModal');
-        }, 3000);
+            closeModal(event.target.closest('.modal').id);
+            event.target.submit(); // Soumettre le formulaire après affichage du message
+        }, 2000);
     }
 
-    function prescrireMedicaments(event) {
-        event.preventDefault();
+    // Enregistrer une Feuille de Maladie
+    document.getElementById('feuilleMaladieForm').addEventListener('submit', function(event) {
+        handleFormSubmission(event, (e, successDiv) => {
+            const numPatient = document.getElementById('numPatientFeuille').value;
+            const date = document.getElementById('dateEmission').value;
+            const frais = document.getElementById('fraisFeuille').value;
+            const modePaiement = document.getElementById('modePaiementFeuille').value;
+            const commentaires = document.getElementById('commentairesFeuille').value;
 
-        const idConsultation = document.getElementById('idConsultationMed').value;
-        const medicament = document.getElementById('medicamentSelect');
-        const quantite = document.getElementById('quantiteMedicament').value;
-        const instructions = document.getElementById('instructionsMedicament').value;
+            if (!numPatient || !date || !frais) {
+                throw new Error('Tous les champs obligatoires sont requis.');
+            }
 
-        const successDiv = document.createElement('div');
-        successDiv.className = 'success-message';
-        successDiv.innerHTML = `
-            ✅ <strong>Médicament prescrit avec succès !</strong><br>
-            ${medicament.options[medicament.selectedIndex].text}<br>
-            Quantité : ${quantite} - Consultation : ${idConsultation}
-        `;
+            const feuilleId = Math.floor(Math.random() * 3000) + 3000;
+            successDiv.innerHTML = `✅ <strong>Feuille enregistrée avec succès !</strong><br>ID Feuille : ${feuilleId}<br>Patient N° ${numPatient} - ${frais}€`;
+        });
+    });
 
-        const form = event.target;
-        form.parentNode.insertBefore(successDiv, form);
-        form.reset();
+    // Prescrire des Médicaments
+    document.getElementById('medicamentForm').addEventListener('submit', function(event) {
+        handleFormSubmission(event, (e, successDiv) => {
+            const idConsultation = document.getElementById('idConsultationMed').value;
+            const medicament = document.getElementById('medicamentSelect');
+            const quantite = document.getElementById('quantiteMedicament').value;
+            const instructions = document.getElementById('instructionsMedicament').value;
 
-        setTimeout(() => {
-            successDiv.remove();
-            closeModal('medicamentModal');
-        }, 3000);
-    }
+            if (!idConsultation || !medicament.value || !quantite) {
+                throw new Error('Tous les champs obligatoires sont requis.');
+            }
 
-    function prescrireSpecialiste(event) {
-        event.preventDefault();
+            successDiv.innerHTML = `✅ <strong>Médicament prescrit avec succès !</strong><br>${medicament.options[medicament.selectedIndex].text}<br>Quantité : ${quantite} - Consultation : ${idConsultation}`;
+        });
+    });
 
-        const idConsultation = document.getElementById('idConsultationInit').value;
-        const specialiste = document.getElementById('specialisteSelect');
-        const date = document.getElementById('dateSpecialiste').value;
-        const heure = document.getElementById('heureSpecialiste').value;
-        const motif = document.getElementById('motifSpecialiste').value;
+    // Prescrire une Consultation Spécialisée
+    document.getElementById('specialisteForm').addEventListener('submit', function(event) {
+        handleFormSubmission(event, (e, successDiv) => {
+            const idConsultation = document.getElementById('idConsultationInit').value;
+            const specialiste = document.getElementById('specialisteSelect');
+            const date = document.getElementById('dateSpecialiste').value;
+            const heure = document.getElementById('heureSpecialiste').value;
+            const motif = document.getElementById('motifSpecialiste').value;
 
-        const nouvelleConsultationId = Math.floor(Math.random() * 9000) + 4000;
+            if (!idConsultation || !specialiste.value || !date || !heure) {
+                throw new Error('Tous les champs obligatoires sont requis.');
+            }
 
-        const successDiv = document.createElement('div');
-        successDiv.className = 'success-message';
-        successDiv.innerHTML = `
-            ✅ <strong>Consultation spécialisée prescrite !</strong><br>
-            ${specialiste.options[specialiste.selectedIndex].text}<br>
-            Date : ${date} à ${heure}<br>
-            Nouvelle Consultation ID : ${nouvelleConsultationId}
-        `;
+            const nouvelleConsultationId = Math.floor(Math.random() * 9000) + 4000;
+            successDiv.innerHTML = `✅ <strong>Consultation spécialisée prescrite !</strong><br>${specialiste.options[specialiste.selectedIndex].text}<br>Date : ${date} à ${heure}<br>Nouvelle Consultation ID : ${nouvelleConsultationId}`;
+        });
+    });
 
-        const form = event.target;
-        form.parentNode.insertBefore(successDiv, form);
-        form.reset();
-
-        setTimeout(() => {
-            successDiv.remove();
-            closeModal('specialisteModal');
-        }, 3000);
-    }
-
+    // Voir Détails d'un Patient
     function voirDetailPatient(numPatient) {
         alert(`Affichage des détails du patient N° ${numPatient}\n\nFonctionnalité à implémenter : historique des consultations, prescriptions, etc.`);
     }
 
+    // Déconnexion
     function logout() {
         if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
             window.location.href = '/';

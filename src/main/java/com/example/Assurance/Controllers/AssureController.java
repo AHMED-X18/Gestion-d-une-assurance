@@ -1,6 +1,7 @@
 package com.example.Assurance.Controllers;
 
 import com.example.Assurance.Models.Assure;
+import com.example.Assurance.Models.User;
 import com.example.Assurance.Services.AssureService;
 import com.example.Assurance.Services.MedecinService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,31 +61,28 @@ public class AssureController {
     @GetMapping("/agent")
     public String showAgentPage(Model model) {
         // Initialisation des données pour la page agent
-        if (!model.containsAttribute("agentName")) {
-            model.addAttribute("agentName","Agent Test");
             model.addAttribute("loginTime", LocalDateTime.now()
                     .truncatedTo(ChronoUnit.SECONDS)
                     .format(DateTimeFormatter.ofPattern("d MMMM yyyy 'à' HH:mm a 'WAT'")));
-        }
+
         model.addAttribute("assure", new Assure());
         model.addAttribute("assures", assureService.getAllAssures());
+        model.addAttribute("nombreAssure", assureService.getAllAssures().size());
         model.addAttribute("medecins", medecinService.getAllMedecins() );
         return "agent";
     }
 
     @PostMapping("/association")
     public String associerMedecinTraitant(
-            @RequestParam("numAssure") int numAssure,
-            @RequestParam("medecinId") int medecinId,
+            @RequestParam int numAssure,
+            @RequestParam int medecinId,
             Model model) {
-
         try {
             assureService.associerMedecinTraitant(numAssure, medecinId);
             model.addAttribute("success", "Médecin traitant associé avec succès!");
         } catch (Exception e) {
             model.addAttribute("error", "Erreur lors de l'association: " + e.getMessage());
         }
-
-        return "agent";
+        return "redirect:/assure/agent";
     }
 }

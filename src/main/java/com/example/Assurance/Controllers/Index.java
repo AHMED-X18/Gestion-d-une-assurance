@@ -5,6 +5,7 @@ import com.example.Assurance.Models.User;
 import com.example.Assurance.Services.AssureService;
 import com.example.Assurance.Services.MedecinService;
 import com.example.Assurance.Services.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +40,7 @@ public class Index {
             @RequestParam String login,
             @RequestParam String password,
             @RequestParam(required = false) String userType,
+            HttpSession session,
             Model model) {
 
         User user = userService.authenticate(login, password);
@@ -62,20 +64,25 @@ public class Index {
             model.addAttribute("loginTime", currentTime);
             model.addAttribute("assure", new Assure());
             model.addAttribute("assures", assureService.getAllAssures());
+            model.addAttribute("nombreAssure", assureService.getAllAssures().size());
             model.addAttribute("medecins", medecinService.getAllMedecins() );
+            session.setAttribute("agent", user);
             return "agent";
-        } else if ("MEDECIN_GENERALISTE".equals(role) || "MEDECIN_SPECIALISTE".equals(role)) {
-            if("MEDECIN_GENERALISTE".equals(role)){
-                String identity=user.getMedecinGeneraliste().getNom() +" "+user.getMedecinGeneraliste().getPrenom();
-                model.addAttribute("medecinName", identity);
-                model.addAttribute("loginTime", currentTime);
-                model.addAttribute("medecinType", role); // Passer MEDECIN_GENERALISTE ou MEDECIN_SPECIALISTE
-                return "medecin";
-            }
+        }
+        if("MEDECIN_GENERALISTE".equals(role)){
+            String identity=user.getMedecinGeneraliste().getNom() +" "+user.getMedecinGeneraliste().getPrenom();
+            model.addAttribute("medecinName", identity);
+            model.addAttribute("loginTime", currentTime);
+            model.addAttribute("medecinType", "Medecin Généraliste"); // Passer MEDECIN_GENERALISTE ou MEDECIN_SPECIALISTE
+            session.setAttribute("medecin", user);
+            return "medecin";
+        }
+        if("MEDECIN_SPECIALISTE".equals(role)){
             String identity = user.getMedecinSpecialiste().getNom() + " " + user.getMedecinSpecialiste().getPrenom();
             model.addAttribute("medecinName", identity);
             model.addAttribute("loginTime", currentTime);
-            model.addAttribute("medecinType", role); // Passer MEDECIN_GENERALISTE ou MEDECIN_SPECIALISTE
+            model.addAttribute("medecinType", "Medecin spécialiste"); // Passer MEDECIN_GENERALISTE ou MEDECIN_SPECIALISTE
+            session.setAttribute("medecin", user);
             return "medecin";
 
         }

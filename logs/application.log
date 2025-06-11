@@ -620,3 +620,3463 @@
             on ms1_0.num_med_spe=u1_0.num_med_spe 
     where
         u1_0.num_med_gen=?
+2025-06-11 20:53:25 - Starting AssuranceApplication using Java 23 with PID 6022 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 20:53:25 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 20:53:26 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 20:53:26 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 20:53:34 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 20:53:35 - Finished Spring Data repository scanning in 521 ms. Found 11 JPA repository interfaces.
+2025-06-11 20:53:40 - Tomcat initialized with port 8080 (http)
+2025-06-11 20:53:40 - Starting service [Tomcat]
+2025-06-11 20:53:40 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 20:53:40 - Initializing Spring embedded WebApplicationContext
+2025-06-11 20:53:40 - Root WebApplicationContext: initialization completed in 14260 ms
+2025-06-11 20:53:41 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 20:53:41 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 20:53:42 - HHH000026: Second-level cache disabled
+2025-06-11 20:53:43 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 20:53:43 - HikariPool-1 - Starting...
+2025-06-11 20:53:44 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e3330dc
+2025-06-11 20:53:44 - HikariPool-1 - Start completed.
+2025-06-11 20:53:44 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 20:53:45 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 20:53:45 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 20:53:45 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 20:53:45 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 20:53:49 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 20:53:49 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 20:53:56 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 20:54:02 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 20:54:04 - LiveReload server is running on port 35729
+2025-06-11 20:54:05 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 20:54:05 - Started AssuranceApplication in 51.242 seconds (process running for 63.712)
+2025-06-11 20:54:29 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 20:54:29 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 20:54:29 - Completed initialization in 11 ms
+2025-06-11 20:55:12 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 20:55:12 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 20:55:12 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 20:55:13 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 20:55:13 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 20:55:13 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 20:55:37 - 
+    insert 
+    into
+        assure
+        (date_naissance, num_med_gen, nom, prenom, sexe) 
+    values
+        (?, ?, ?, ?, ?)
+2025-06-11 20:55:37 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 20:55:38 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 20:55:38 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 20:55:38 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 20:55:38 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 20:57:32 - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'medecinId' for method parameter type int is not present]
+2025-06-11 21:01:43 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 21:01:43 - Graceful shutdown complete
+2025-06-11 21:01:43 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:01:43 - HikariPool-1 - Shutdown initiated...
+2025-06-11 21:01:43 - HikariPool-1 - Shutdown completed.
+2025-06-11 21:02:02 - Starting AssuranceApplication using Java 23 with PID 6687 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 21:02:02 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 21:02:04 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 21:02:04 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 21:02:12 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 21:02:13 - Finished Spring Data repository scanning in 627 ms. Found 11 JPA repository interfaces.
+2025-06-11 21:02:23 - Tomcat initialized with port 8080 (http)
+2025-06-11 21:02:23 - Starting service [Tomcat]
+2025-06-11 21:02:23 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 21:02:24 - Initializing Spring embedded WebApplicationContext
+2025-06-11 21:02:24 - Root WebApplicationContext: initialization completed in 20570 ms
+2025-06-11 21:02:26 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 21:02:27 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 21:02:27 - HHH000026: Second-level cache disabled
+2025-06-11 21:02:33 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 21:02:34 - HikariPool-1 - Starting...
+2025-06-11 21:02:37 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13611cc0
+2025-06-11 21:02:37 - HikariPool-1 - Start completed.
+2025-06-11 21:02:38 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 21:02:43 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:02:43 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:02:43 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:02:43 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:02:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 21:02:58 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:03:08 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 21:03:14 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 21:03:19 - LiveReload server is running on port 35729
+2025-06-11 21:03:20 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 21:03:20 - Started AssuranceApplication in 82.986 seconds (process running for 86.756)
+2025-06-11 21:03:55 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 21:03:55 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 21:03:55 - Completed initialization in 17 ms
+2025-06-11 21:03:56 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 21:03:56 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 21:03:56 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:03:56 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:08:14 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 21:08:14 - Graceful shutdown complete
+2025-06-11 21:08:14 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:08:14 - HikariPool-1 - Shutdown initiated...
+2025-06-11 21:08:14 - HikariPool-1 - Shutdown completed.
+2025-06-11 21:08:44 - Starting AssuranceApplication using Java 23 with PID 7146 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 21:08:44 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 21:08:45 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 21:08:45 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 21:08:52 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 21:08:53 - Finished Spring Data repository scanning in 549 ms. Found 11 JPA repository interfaces.
+2025-06-11 21:08:57 - Tomcat initialized with port 8080 (http)
+2025-06-11 21:08:57 - Starting service [Tomcat]
+2025-06-11 21:08:57 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 21:08:57 - Initializing Spring embedded WebApplicationContext
+2025-06-11 21:08:57 - Root WebApplicationContext: initialization completed in 12130 ms
+2025-06-11 21:08:58 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 21:08:58 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 21:08:58 - HHH000026: Second-level cache disabled
+2025-06-11 21:09:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 21:09:01 - HikariPool-1 - Starting...
+2025-06-11 21:09:05 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@14445195
+2025-06-11 21:09:05 - HikariPool-1 - Start completed.
+2025-06-11 21:09:07 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 21:09:09 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:09:09 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:09:09 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:09:09 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:09:14 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 21:09:15 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:09:21 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 21:09:26 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 21:09:30 - LiveReload server is running on port 35729
+2025-06-11 21:09:31 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 21:09:31 - Started AssuranceApplication in 50.522 seconds (process running for 55.848)
+2025-06-11 21:09:43 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 21:09:43 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 21:09:43 - Completed initialization in 27 ms
+2025-06-11 21:09:45 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 21:09:45 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 21:09:45 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:09:46 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:18:00 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 21:18:00 - Graceful shutdown complete
+2025-06-11 21:18:00 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:18:00 - HikariPool-1 - Shutdown initiated...
+2025-06-11 21:18:00 - HikariPool-1 - Shutdown completed.
+2025-06-11 21:18:35 - Starting AssuranceApplication using Java 23 with PID 7689 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 21:18:35 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 21:18:36 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 21:18:36 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 21:18:45 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 21:18:45 - Finished Spring Data repository scanning in 291 ms. Found 11 JPA repository interfaces.
+2025-06-11 21:18:48 - Tomcat initialized with port 8080 (http)
+2025-06-11 21:18:48 - Starting service [Tomcat]
+2025-06-11 21:18:48 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 21:18:48 - Initializing Spring embedded WebApplicationContext
+2025-06-11 21:18:48 - Root WebApplicationContext: initialization completed in 12021 ms
+2025-06-11 21:18:49 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 21:18:49 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 21:18:49 - HHH000026: Second-level cache disabled
+2025-06-11 21:18:50 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 21:18:51 - HikariPool-1 - Starting...
+2025-06-11 21:18:51 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@738ca0ca
+2025-06-11 21:18:51 - HikariPool-1 - Start completed.
+2025-06-11 21:18:52 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 21:18:53 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:18:53 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:18:53 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:18:53 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:18:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 21:18:57 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:18:59 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 21:19:02 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 21:19:03 - LiveReload server is running on port 35729
+2025-06-11 21:19:03 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 21:19:03 - Started AssuranceApplication in 33.954 seconds (process running for 40.323)
+2025-06-11 21:19:10 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 21:19:10 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 21:19:10 - Completed initialization in 8 ms
+2025-06-11 21:19:11 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 21:19:11 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 21:19:11 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:19:11 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:20:21 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 21:20:31 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 21:20:31 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 21:21:48 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 21:21:48 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 21:21:48 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 21:21:48 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 21:21:48 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:21:48 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:22:01 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=a1_0.num_med_gen 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    where
+        a1_0.num_patient=?
+2025-06-11 21:22:01 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 21:22:01 - 
+    update
+        assure 
+    set
+        date_naissance=?,
+        num_med_gen=?,
+        nom=?,
+        prenom=?,
+        sexe=? 
+    where
+        num_patient=?
+2025-06-11 21:22:01 - [THYMELEAF][http-nio-8080-exec-10] Exception processing template "agent": An error happened during template parsing (template: "class path resource [templates/agent.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/agent.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1437)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.attoparser.ParseException: Error during execution of processor 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "agent" - line 485, col 36)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "agent" - line 485, col 36)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:117)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'assure' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:928)
+	at org.thymeleaf.spring6.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:232)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring6.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	... 63 common frames omitted
+2025-06-11 21:22:01 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/agent.html]")] with root cause
+java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'assure' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:928)
+	at org.thymeleaf.spring6.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:232)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring6.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1437)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-06-11 21:22:01 - Cannot render error page for request [/assure/association] and exception [An error happened during template parsing (template: "class path resource [templates/agent.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2025-06-11 21:25:32 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 21:25:32 - Graceful shutdown complete
+2025-06-11 21:25:32 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:25:32 - HikariPool-1 - Shutdown initiated...
+2025-06-11 21:25:32 - HikariPool-1 - Shutdown completed.
+2025-06-11 21:26:06 - Starting AssuranceApplication using Java 23 with PID 8134 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 21:26:06 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 21:26:07 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 21:26:07 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 21:26:15 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 21:26:16 - Finished Spring Data repository scanning in 554 ms. Found 11 JPA repository interfaces.
+2025-06-11 21:26:21 - Tomcat initialized with port 8080 (http)
+2025-06-11 21:26:21 - Starting service [Tomcat]
+2025-06-11 21:26:21 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 21:26:21 - Initializing Spring embedded WebApplicationContext
+2025-06-11 21:26:21 - Root WebApplicationContext: initialization completed in 14580 ms
+2025-06-11 21:26:22 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 21:26:23 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 21:26:23 - HHH000026: Second-level cache disabled
+2025-06-11 21:26:25 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 21:26:26 - HikariPool-1 - Starting...
+2025-06-11 21:26:28 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c955372
+2025-06-11 21:26:28 - HikariPool-1 - Start completed.
+2025-06-11 21:26:30 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 21:26:33 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:26:33 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:26:33 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:26:33 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:26:38 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 21:26:39 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:26:47 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 21:26:51 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 21:26:53 - LiveReload server is running on port 35729
+2025-06-11 21:26:53 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 21:26:53 - Started AssuranceApplication in 53.663 seconds (process running for 59.366)
+2025-06-11 21:27:14 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 21:27:14 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 21:27:14 - Completed initialization in 35 ms
+2025-06-11 21:27:14 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-06-11 21:31:02 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 21:31:02 - Graceful shutdown complete
+2025-06-11 21:31:02 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:31:02 - HikariPool-1 - Shutdown initiated...
+2025-06-11 21:31:02 - HikariPool-1 - Shutdown completed.
+2025-06-11 21:31:25 - Starting AssuranceApplication using Java 23 with PID 8472 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 21:31:25 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 21:31:25 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 21:31:25 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 21:31:30 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 21:31:30 - Finished Spring Data repository scanning in 430 ms. Found 11 JPA repository interfaces.
+2025-06-11 21:31:34 - Tomcat initialized with port 8080 (http)
+2025-06-11 21:31:34 - Starting service [Tomcat]
+2025-06-11 21:31:34 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 21:31:34 - Initializing Spring embedded WebApplicationContext
+2025-06-11 21:31:34 - Root WebApplicationContext: initialization completed in 8925 ms
+2025-06-11 21:31:35 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 21:31:36 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 21:31:36 - HHH000026: Second-level cache disabled
+2025-06-11 21:31:41 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 21:31:41 - HikariPool-1 - Starting...
+2025-06-11 21:31:43 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c9bcd34
+2025-06-11 21:31:43 - HikariPool-1 - Start completed.
+2025-06-11 21:31:44 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 21:31:48 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:31:48 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:31:49 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:31:49 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:31:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 21:31:57 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:32:02 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 21:32:07 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 21:32:10 - LiveReload server is running on port 35729
+2025-06-11 21:32:11 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 21:32:11 - Started AssuranceApplication in 50.496 seconds (process running for 53.76)
+2025-06-11 21:33:34 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 21:33:34 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 21:33:34 - Completed initialization in 30 ms
+2025-06-11 21:33:35 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 21:33:36 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 21:33:36 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 21:33:36 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 21:33:36 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 21:33:36 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:37:11 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 21:37:11 - Graceful shutdown complete
+2025-06-11 21:37:11 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:37:11 - HikariPool-1 - Shutdown initiated...
+2025-06-11 21:37:11 - HikariPool-1 - Shutdown completed.
+2025-06-11 21:37:36 - Starting AssuranceApplication using Java 23 with PID 8838 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 21:37:36 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 21:37:37 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 21:37:37 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 21:37:49 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 21:37:50 - Finished Spring Data repository scanning in 703 ms. Found 11 JPA repository interfaces.
+2025-06-11 21:37:55 - Tomcat initialized with port 8080 (http)
+2025-06-11 21:37:55 - Starting service [Tomcat]
+2025-06-11 21:37:55 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 21:37:55 - Initializing Spring embedded WebApplicationContext
+2025-06-11 21:37:55 - Root WebApplicationContext: initialization completed in 18181 ms
+2025-06-11 21:37:57 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 21:37:57 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 21:37:57 - HHH000026: Second-level cache disabled
+2025-06-11 21:38:00 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 21:38:01 - HikariPool-1 - Starting...
+2025-06-11 21:38:03 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5dae212c
+2025-06-11 21:38:03 - HikariPool-1 - Start completed.
+2025-06-11 21:38:03 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 21:38:05 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:38:05 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:38:05 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:38:05 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:38:11 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 21:38:12 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:38:20 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 21:38:27 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 21:38:32 - LiveReload server is running on port 35729
+2025-06-11 21:38:33 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 21:38:33 - Started AssuranceApplication in 64.457 seconds (process running for 72.0)
+2025-06-11 21:39:36 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 21:39:36 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 21:39:36 - Completed initialization in 35 ms
+2025-06-11 21:39:38 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 21:39:38 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 21:39:39 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 21:39:39 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 21:39:39 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 21:39:39 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 21:40:10 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=a1_0.num_med_gen 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    where
+        a1_0.num_patient=?
+2025-06-11 21:40:10 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 21:40:10 - 
+    update
+        assure 
+    set
+        date_naissance=?,
+        num_med_gen=?,
+        nom=?,
+        prenom=?,
+        sexe=? 
+    where
+        num_patient=?
+2025-06-11 21:40:10 - [THYMELEAF][http-nio-8080-exec-3] Exception processing template "agent": An error happened during template parsing (template: "class path resource [templates/agent.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/agent.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1437)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.attoparser.ParseException: Error during execution of processor 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "agent" - line 485, col 36)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "agent" - line 485, col 36)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:117)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'assure' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:928)
+	at org.thymeleaf.spring6.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:232)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring6.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	... 63 common frames omitted
+2025-06-11 21:40:10 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/agent.html]")] with root cause
+java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'assure' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:928)
+	at org.thymeleaf.spring6.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:232)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring6.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1437)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-06-11 21:40:10 - Cannot render error page for request [/assure/association] and exception [An error happened during template parsing (template: "class path resource [templates/agent.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2025-06-11 21:46:57 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=a1_0.num_med_gen 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    where
+        a1_0.num_patient=?
+2025-06-11 21:46:58 - [THYMELEAF][http-nio-8080-exec-6] Exception processing template "agent": An error happened during template parsing (template: "class path resource [templates/agent.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/agent.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1437)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.attoparser.ParseException: Error during execution of processor 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "agent" - line 485, col 36)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "agent" - line 485, col 36)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:117)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'assure' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:928)
+	at org.thymeleaf.spring6.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:232)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring6.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	... 63 common frames omitted
+2025-06-11 21:46:58 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/agent.html]")] with root cause
+java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'assure' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:928)
+	at org.thymeleaf.spring6.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:232)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring6.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring6.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleStandaloneElementEnd(TemplateHandlerAdapterMarkupHandler.java:260)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:256)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleStandaloneElementEnd(OutputExpressionInlinePreProcessorHandler.java:169)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleStandaloneElementEnd(InlinedOutputExpressionMarkupHandler.java:104)
+	at org.attoparser.HtmlVoidElement.handleOpenElementEnd(HtmlVoidElement.java:92)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1437)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-06-11 21:46:58 - Cannot render error page for request [/assure/association] and exception [An error happened during template parsing (template: "class path resource [templates/agent.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2025-06-11 21:47:06 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 21:47:06 - Graceful shutdown complete
+2025-06-11 21:47:06 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:47:06 - HikariPool-1 - Shutdown initiated...
+2025-06-11 21:47:06 - HikariPool-1 - Shutdown completed.
+2025-06-11 21:47:54 - Starting AssuranceApplication using Java 23 with PID 9376 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 21:47:54 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 21:47:55 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 21:47:55 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 21:48:01 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 21:48:02 - Finished Spring Data repository scanning in 789 ms. Found 11 JPA repository interfaces.
+2025-06-11 21:48:06 - Tomcat initialized with port 8080 (http)
+2025-06-11 21:48:06 - Starting service [Tomcat]
+2025-06-11 21:48:06 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 21:48:06 - Initializing Spring embedded WebApplicationContext
+2025-06-11 21:48:06 - Root WebApplicationContext: initialization completed in 11509 ms
+2025-06-11 21:48:08 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 21:48:08 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 21:48:08 - HHH000026: Second-level cache disabled
+2025-06-11 21:48:10 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 21:48:10 - HikariPool-1 - Starting...
+2025-06-11 21:48:12 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68b23edb
+2025-06-11 21:48:12 - HikariPool-1 - Start completed.
+2025-06-11 21:48:12 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 21:48:18 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:48:18 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:48:18 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:48:18 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:48:32 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 21:48:34 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:48:38 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 21:48:42 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 21:48:43 - LiveReload server is running on port 35729
+2025-06-11 21:48:43 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 21:48:43 - Started AssuranceApplication in 58.001 seconds (process running for 67.373)
+2025-06-11 21:48:43 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 21:48:43 - Graceful shutdown complete
+2025-06-11 21:48:43 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:48:43 - HikariPool-1 - Shutdown initiated...
+2025-06-11 21:48:44 - HikariPool-1 - Shutdown completed.
+2025-06-11 21:49:10 - Starting AssuranceApplication using Java 23 with PID 9548 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 21:49:10 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 21:49:11 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 21:49:11 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 21:49:18 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 21:49:19 - Finished Spring Data repository scanning in 519 ms. Found 11 JPA repository interfaces.
+2025-06-11 21:49:26 - Tomcat initialized with port 8080 (http)
+2025-06-11 21:49:26 - Starting service [Tomcat]
+2025-06-11 21:49:26 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 21:49:27 - Initializing Spring embedded WebApplicationContext
+2025-06-11 21:49:27 - Root WebApplicationContext: initialization completed in 15826 ms
+2025-06-11 21:49:28 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 21:49:28 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 21:49:29 - HHH000026: Second-level cache disabled
+2025-06-11 21:49:32 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 21:49:32 - HikariPool-1 - Starting...
+2025-06-11 21:49:34 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13611cc0
+2025-06-11 21:49:34 - HikariPool-1 - Start completed.
+2025-06-11 21:49:34 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 21:49:38 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:49:38 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 21:49:38 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:49:38 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 21:49:45 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 21:49:46 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 21:49:50 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 21:49:55 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 21:49:57 - LiveReload server is running on port 35729
+2025-06-11 21:49:57 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 21:49:57 - Started AssuranceApplication in 53.955 seconds (process running for 57.566)
+2025-06-11 21:54:38 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 21:54:38 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 21:54:38 - Completed initialization in 10 ms
+2025-06-11 21:54:39 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=a1_0.num_med_gen 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    where
+        a1_0.num_patient=?
+2025-06-11 21:54:39 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 21:54:39 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 21:54:40 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 21:54:40 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 21:55:26 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=a1_0.num_med_gen 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    where
+        a1_0.num_patient=?
+2025-06-11 21:55:26 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 21:55:26 - 
+    update
+        assure 
+    set
+        date_naissance=?,
+        num_med_gen=?,
+        nom=?,
+        prenom=?,
+        sexe=? 
+    where
+        num_patient=?
+2025-06-11 21:55:26 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 21:55:26 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 21:55:26 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 21:55:26 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 22:04:15 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 22:04:15 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:04:15 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 22:04:15 - 
+    select
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        u1_0.num_med_gen=?
+2025-06-11 22:04:34 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:04:34 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:07:01 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 22:07:01 - Graceful shutdown complete
+2025-06-11 22:07:01 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:07:01 - HikariPool-1 - Shutdown initiated...
+2025-06-11 22:07:02 - HikariPool-1 - Shutdown completed.
+2025-06-11 22:07:33 - Starting AssuranceApplication using Java 23 with PID 10385 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 22:07:33 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 22:07:34 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 22:07:34 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 22:07:43 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 22:07:44 - Finished Spring Data repository scanning in 885 ms. Found 11 JPA repository interfaces.
+2025-06-11 22:07:53 - Tomcat initialized with port 8080 (http)
+2025-06-11 22:07:54 - Starting service [Tomcat]
+2025-06-11 22:07:54 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 22:07:54 - Initializing Spring embedded WebApplicationContext
+2025-06-11 22:07:54 - Root WebApplicationContext: initialization completed in 20122 ms
+2025-06-11 22:07:56 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 22:07:56 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 22:07:56 - HHH000026: Second-level cache disabled
+2025-06-11 22:07:58 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 22:07:59 - HikariPool-1 - Starting...
+2025-06-11 22:08:00 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75f32eef
+2025-06-11 22:08:00 - HikariPool-1 - Start completed.
+2025-06-11 22:08:01 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 22:08:03 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:08:03 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:08:03 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:08:03 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:08:09 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 22:08:09 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:08:12 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 22:08:15 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 22:08:17 - LiveReload server is running on port 35729
+2025-06-11 22:08:17 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 22:08:17 - Started AssuranceApplication in 49.858 seconds (process running for 54.992)
+2025-06-11 22:08:51 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 22:08:51 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 22:08:51 - Completed initialization in 9 ms
+2025-06-11 22:08:52 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:08:52 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:09:12 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:09:12 - 
+    select
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.mot_de_passe 
+    from
+        medecin_specialiste ms1_0 
+    left join
+        users u1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    where
+        ms1_0.num_med_spe=?
+2025-06-11 22:09:23 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:09:23 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:21:10 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 22:21:10 - Graceful shutdown complete
+2025-06-11 22:21:10 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:21:10 - HikariPool-1 - Shutdown initiated...
+2025-06-11 22:21:10 - HikariPool-1 - Shutdown completed.
+2025-06-11 22:21:30 - Starting AssuranceApplication using Java 23 with PID 11278 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 22:21:30 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 22:21:31 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 22:21:31 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 22:21:39 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 22:21:40 - Finished Spring Data repository scanning in 548 ms. Found 11 JPA repository interfaces.
+2025-06-11 22:21:46 - Tomcat initialized with port 8080 (http)
+2025-06-11 22:21:46 - Starting service [Tomcat]
+2025-06-11 22:21:46 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 22:21:47 - Initializing Spring embedded WebApplicationContext
+2025-06-11 22:21:47 - Root WebApplicationContext: initialization completed in 15784 ms
+2025-06-11 22:21:48 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 22:21:49 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 22:21:49 - HHH000026: Second-level cache disabled
+2025-06-11 22:21:51 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 22:21:52 - HikariPool-1 - Starting...
+2025-06-11 22:21:53 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c591dff
+2025-06-11 22:21:53 - HikariPool-1 - Start completed.
+2025-06-11 22:21:53 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 22:21:56 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:21:56 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:21:56 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:21:56 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:22:01 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 22:22:03 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:22:06 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 22:22:09 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 22:22:11 - LiveReload server is running on port 35729
+2025-06-11 22:22:11 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 22:22:11 - Started AssuranceApplication in 47.589 seconds (process running for 51.877)
+2025-06-11 22:24:56 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 22:24:56 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 22:24:56 - Completed initialization in 19 ms
+2025-06-11 22:25:05 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:25:05 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 22:25:05 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 22:25:05 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:25:05 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 22:25:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 22:25:54 - Graceful shutdown complete
+2025-06-11 22:25:54 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:25:54 - HikariPool-1 - Shutdown initiated...
+2025-06-11 22:25:54 - HikariPool-1 - Shutdown completed.
+2025-06-11 22:26:13 - Starting AssuranceApplication using Java 23 with PID 11578 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 22:26:13 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 22:26:14 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 22:26:14 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 22:26:22 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 22:26:22 - Finished Spring Data repository scanning in 432 ms. Found 11 JPA repository interfaces.
+2025-06-11 22:26:25 - Tomcat initialized with port 8080 (http)
+2025-06-11 22:26:25 - Starting service [Tomcat]
+2025-06-11 22:26:25 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 22:26:26 - Initializing Spring embedded WebApplicationContext
+2025-06-11 22:26:26 - Root WebApplicationContext: initialization completed in 11503 ms
+2025-06-11 22:26:28 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 22:26:28 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 22:26:29 - HHH000026: Second-level cache disabled
+2025-06-11 22:26:31 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 22:26:31 - HikariPool-1 - Starting...
+2025-06-11 22:26:32 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c60e34a
+2025-06-11 22:26:32 - HikariPool-1 - Start completed.
+2025-06-11 22:26:34 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 22:26:37 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:26:37 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:26:37 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:26:37 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:26:46 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 22:26:47 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:26:53 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 22:26:55 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 22:27:00 - LiveReload server is running on port 35729
+2025-06-11 22:27:00 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 22:27:00 - Started AssuranceApplication in 53.343 seconds (process running for 59.775)
+2025-06-11 22:27:41 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 22:27:41 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 22:27:41 - Completed initialization in 10 ms
+2025-06-11 22:27:42 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:27:42 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 22:27:43 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 22:27:43 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:27:43 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 22:28:27 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 22:28:28 - Graceful shutdown complete
+2025-06-11 22:28:28 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:28:28 - HikariPool-1 - Shutdown initiated...
+2025-06-11 22:28:28 - HikariPool-1 - Shutdown completed.
+2025-06-11 22:28:49 - Starting AssuranceApplication using Java 23 with PID 11815 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 22:28:49 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 22:28:50 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 22:28:50 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 22:28:56 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 22:28:57 - Finished Spring Data repository scanning in 349 ms. Found 11 JPA repository interfaces.
+2025-06-11 22:29:01 - Tomcat initialized with port 8080 (http)
+2025-06-11 22:29:01 - Starting service [Tomcat]
+2025-06-11 22:29:01 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 22:29:01 - Initializing Spring embedded WebApplicationContext
+2025-06-11 22:29:01 - Root WebApplicationContext: initialization completed in 11546 ms
+2025-06-11 22:29:04 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 22:29:04 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 22:29:04 - HHH000026: Second-level cache disabled
+2025-06-11 22:29:06 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 22:29:06 - HikariPool-1 - Starting...
+2025-06-11 22:29:07 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5dc25858
+2025-06-11 22:29:07 - HikariPool-1 - Start completed.
+2025-06-11 22:29:07 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 22:29:09 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:29:09 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:29:09 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:29:09 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:29:13 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 22:29:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:29:16 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 22:29:23 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 22:29:26 - LiveReload server is running on port 35729
+2025-06-11 22:29:27 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 22:29:27 - Started AssuranceApplication in 44.229 seconds (process running for 49.684)
+2025-06-11 22:30:33 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 22:30:33 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 22:30:33 - Completed initialization in 24 ms
+2025-06-11 22:30:35 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:30:35 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 22:30:35 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 22:30:35 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:30:35 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 22:40:01 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 22:40:01 - Graceful shutdown complete
+2025-06-11 22:40:01 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:40:01 - HikariPool-1 - Shutdown initiated...
+2025-06-11 22:40:01 - HikariPool-1 - Shutdown completed.
+2025-06-11 22:40:21 - Starting AssuranceApplication using Java 23 with PID 12389 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 22:40:21 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 22:40:21 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 22:40:22 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 22:40:38 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 22:40:39 - Finished Spring Data repository scanning in 461 ms. Found 11 JPA repository interfaces.
+2025-06-11 22:40:49 - Tomcat initialized with port 8080 (http)
+2025-06-11 22:40:49 - Starting service [Tomcat]
+2025-06-11 22:40:49 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 22:40:49 - Initializing Spring embedded WebApplicationContext
+2025-06-11 22:40:49 - Root WebApplicationContext: initialization completed in 27762 ms
+2025-06-11 22:40:52 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 22:40:52 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 22:40:52 - HHH000026: Second-level cache disabled
+2025-06-11 22:40:54 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 22:40:55 - HikariPool-1 - Starting...
+2025-06-11 22:40:57 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bb28af9
+2025-06-11 22:40:57 - HikariPool-1 - Start completed.
+2025-06-11 22:40:59 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 22:41:01 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:41:01 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:41:01 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:41:01 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:41:05 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 22:41:07 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:41:13 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 22:41:18 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 22:41:21 - LiveReload server is running on port 35729
+2025-06-11 22:41:22 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 22:41:22 - Started AssuranceApplication in 65.654 seconds (process running for 70.787)
+2025-06-11 22:42:17 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 22:42:17 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 22:42:17 - Completed initialization in 6 ms
+2025-06-11 22:42:18 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:42:18 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 22:42:19 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 22:42:19 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:42:19 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 22:43:53 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 22:43:53 - Graceful shutdown complete
+2025-06-11 22:43:53 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:43:53 - HikariPool-1 - Shutdown initiated...
+2025-06-11 22:43:53 - HikariPool-1 - Shutdown completed.
+2025-06-11 22:44:23 - Starting AssuranceApplication using Java 23 with PID 12639 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 22:44:23 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 22:44:23 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 22:44:23 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 22:44:29 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 22:44:29 - Finished Spring Data repository scanning in 373 ms. Found 11 JPA repository interfaces.
+2025-06-11 22:44:32 - Tomcat initialized with port 8080 (http)
+2025-06-11 22:44:32 - Starting service [Tomcat]
+2025-06-11 22:44:32 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 22:44:33 - Initializing Spring embedded WebApplicationContext
+2025-06-11 22:44:33 - Root WebApplicationContext: initialization completed in 9600 ms
+2025-06-11 22:44:34 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 22:44:34 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 22:44:34 - HHH000026: Second-level cache disabled
+2025-06-11 22:44:36 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 22:44:36 - HikariPool-1 - Starting...
+2025-06-11 22:44:38 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b341354
+2025-06-11 22:44:38 - HikariPool-1 - Start completed.
+2025-06-11 22:44:39 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 22:44:41 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:44:41 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:44:41 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:44:41 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:44:46 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 22:44:47 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:44:54 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 22:44:58 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 22:45:01 - LiveReload server is running on port 35729
+2025-06-11 22:45:01 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 22:45:01 - Started AssuranceApplication in 46.915 seconds (process running for 53.341)
+2025-06-11 22:45:22 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 22:45:22 - Graceful shutdown complete
+2025-06-11 22:45:22 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:45:22 - HikariPool-1 - Shutdown initiated...
+2025-06-11 22:45:22 - HikariPool-1 - Shutdown completed.
+2025-06-11 22:45:46 - Starting AssuranceApplication using Java 23 with PID 12816 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 22:45:46 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 22:45:47 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 22:45:47 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 22:45:52 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 22:45:53 - Finished Spring Data repository scanning in 387 ms. Found 11 JPA repository interfaces.
+2025-06-11 22:45:56 - Tomcat initialized with port 8080 (http)
+2025-06-11 22:45:56 - Starting service [Tomcat]
+2025-06-11 22:45:56 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 22:45:56 - Initializing Spring embedded WebApplicationContext
+2025-06-11 22:45:56 - Root WebApplicationContext: initialization completed in 9075 ms
+2025-06-11 22:45:57 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 22:45:58 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 22:45:58 - HHH000026: Second-level cache disabled
+2025-06-11 22:45:59 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 22:46:00 - HikariPool-1 - Starting...
+2025-06-11 22:46:01 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7379bbe
+2025-06-11 22:46:01 - HikariPool-1 - Start completed.
+2025-06-11 22:46:02 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 22:46:05 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:46:05 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:46:05 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:46:05 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:46:09 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 22:46:10 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:46:13 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 22:46:18 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 22:46:20 - LiveReload server is running on port 35729
+2025-06-11 22:46:20 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 22:46:20 - Started AssuranceApplication in 39.087 seconds (process running for 42.777)
+2025-06-11 22:55:08 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 22:55:08 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 22:55:08 - Completed initialization in 25 ms
+2025-06-11 22:55:09 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 22:55:10 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 22:55:10 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 22:55:10 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 22:55:10 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 22:55:10 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 22:56:03 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 22:56:03 - Graceful shutdown complete
+2025-06-11 22:56:03 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:56:03 - HikariPool-1 - Shutdown initiated...
+2025-06-11 22:56:03 - HikariPool-1 - Shutdown completed.
+2025-06-11 22:56:19 - Starting AssuranceApplication using Java 23 with PID 13131 (/home/ahmed-jalil/Bureau/Assurance/target/classes started by ahmed-jalil in /home/ahmed-jalil/Bureau/Assurance)
+2025-06-11 22:56:19 - No active profile set, falling back to 1 default profile: "default"
+2025-06-11 22:56:20 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-11 22:56:20 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-11 22:56:27 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-11 22:56:27 - Finished Spring Data repository scanning in 343 ms. Found 11 JPA repository interfaces.
+2025-06-11 22:56:30 - Tomcat initialized with port 8080 (http)
+2025-06-11 22:56:30 - Starting service [Tomcat]
+2025-06-11 22:56:30 - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-11 22:56:30 - Initializing Spring embedded WebApplicationContext
+2025-06-11 22:56:30 - Root WebApplicationContext: initialization completed in 9986 ms
+2025-06-11 22:56:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-11 22:56:32 - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-11 22:56:32 - HHH000026: Second-level cache disabled
+2025-06-11 22:56:33 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-11 22:56:33 - HikariPool-1 - Starting...
+2025-06-11 22:56:34 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@71a3c7bc
+2025-06-11 22:56:34 - HikariPool-1 - Start completed.
+2025-06-11 22:56:35 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.41
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-11 22:56:39 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:56:39 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParGeneraliste$PrescritParGeneralisteId
+2025-06-11 22:56:39 - HHH000038: Composite-id class does not override equals(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:56:39 - HHH000039: Composite-id class does not override hashCode(): com.example.Assurance.Models.PrescritParSpecialiste$PrescritParSpecialisteId
+2025-06-11 22:56:43 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-11 22:56:43 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 22:56:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-11 22:56:54 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-11 22:56:56 - LiveReload server is running on port 35729
+2025-06-11 22:56:56 - Tomcat started on port 8080 (http) with context path '/'
+2025-06-11 22:56:57 - Started AssuranceApplication in 42.489 seconds (process running for 46.978)
+2025-06-11 23:00:40 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-11 23:00:40 - Initializing Servlet 'dispatcherServlet'
+2025-06-11 23:00:40 - Completed initialization in 9 ms
+2025-06-11 23:00:41 - 
+    select
+        u1_0.id_user,
+        u1_0.id_agent,
+        u1_0.login,
+        u1_0.num_med_gen,
+        u1_0.num_med_spe,
+        u1_0.mot_de_passe 
+    from
+        users u1_0 
+    where
+        u1_0.login=?
+2025-06-11 23:00:41 - 
+    select
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.id_user,
+        u1_0.login,
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        agent_securite_sociale ass1_0 
+    left join
+        users u1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_generaliste mg1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        ass1_0.id_agent=?
+2025-06-11 23:00:41 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 23:00:41 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 23:00:41 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 23:00:41 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 23:01:44 - 
+    insert 
+    into
+        assure
+        (date_naissance, num_med_gen, nom, prenom, sexe) 
+    values
+        (?, ?, ?, ?, ?)
+2025-06-11 23:01:45 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 23:01:45 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 23:01:45 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 23:01:45 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe,
+        u1_0.id_user,
+        ass1_0.id_agent,
+        ass1_0.nom,
+        ass1_0.prenom,
+        ass1_0.sexe,
+        u1_0.login,
+        ms1_0.num_med_spe,
+        ms1_0.nom,
+        ms1_0.prenom,
+        ms1_0.sexe,
+        ms1_0.specialite,
+        u1_0.mot_de_passe 
+    from
+        medecin_generaliste mg1_0 
+    left join
+        users u1_0 
+            on mg1_0.num_med_gen=u1_0.num_med_gen 
+    left join
+        agent_securite_sociale ass1_0 
+            on ass1_0.id_agent=u1_0.id_agent 
+    left join
+        medecin_specialiste ms1_0 
+            on ms1_0.num_med_spe=u1_0.num_med_spe 
+    where
+        mg1_0.num_med_gen=?
+2025-06-11 23:01:45 - 
+    select
+        a1_0.num_patient,
+        a1_0.date_naissance,
+        a1_0.num_med_gen,
+        a1_0.nom,
+        a1_0.prenom,
+        a1_0.sexe 
+    from
+        assure a1_0
+2025-06-11 23:01:45 - 
+    select
+        mg1_0.num_med_gen,
+        mg1_0.nom,
+        mg1_0.prenom,
+        mg1_0.sexe 
+    from
+        medecin_generaliste mg1_0
+2025-06-11 23:02:32 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-11 23:02:32 - Graceful shutdown complete
+2025-06-11 23:02:32 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-11 23:02:32 - HikariPool-1 - Shutdown initiated...
+2025-06-11 23:02:32 - HikariPool-1 - Shutdown completed.
